@@ -1,0 +1,52 @@
+/* pages/order/order.wxss */
+.navbar {
+    display: flex;
+    position: absolute;
+    z-index: 500;
+    top: 0;
+    width: 100%;
+}
+
+.navbar__item {
+    position: relative;
+    display: block;
+    flex: 1;
+    padding: 10rpx 0;
+    text-align: center;
+    font-size: 0;
+    height: 48rpx;
+    line-height: 48rpx;
+}
+
+.navbar__on view{
+  border-radius:14px;
+  box-shadow:0px 0px 9px #ccc;
+}
+.navbar__slider {
+    position: absolute;
+    display: block;
+    content: " ";
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    background-color: #16B13A;
+    transition: transform .3s;
+}
+
+.navbar__title{
+    display: inline-block;
+    font-size: 15px;
+    text-align: center;
+    width:136rpx;
+    line-height:60rpx;
+}
+
+swiper {
+  height: 100%;
+}
+
+swiper-item{
+  width: 100%;
+  padding-top: 20rpx;
+  text-align: center;
+}

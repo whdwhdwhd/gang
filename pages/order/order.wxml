@@ -1,0 +1,26 @@
+<!--pages/order/order.wxml-->
+<view class="order">
+  <view class="navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="navbar__item {{activeIndex == index ? 'navbar__on' : ''}}" bindtap="navTabClick">
+            <view class="navbar__title">{{item.name}}</view>
+          </view>
+      </block>
+  </view>
+  <view style="position: absolute;top: 68rpx;width: 100%;height:{{contentHeight}}px">
+    <swiper current="{{activeIndex}}" duration="300" bindchange="bindChange">
+      <swiper-item>
+        <view>全部</view>
+      </swiper-item>
+      <swiper-item>
+        <view>待服务</view>
+      </swiper-item>
+      <swiper-item>
+        <view>待付款</view>
+      </swiper-item>
+      <swiper-item>
+        <view>待评价</view>
+      </swiper-item>
+    </swiper> 
+  </view>
+</view>

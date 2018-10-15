@@ -1,0 +1,4 @@
+<!--pages/my/my.wxml-->
+<view class="my">
+  我的
+</view>
