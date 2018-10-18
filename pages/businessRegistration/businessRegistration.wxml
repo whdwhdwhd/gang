@@ -1,0 +1,36 @@
+<!--pages/businessRegistration/businessRegistration.wxml-->
+<view class="businessRegistration">
+  <form bindsubmit="formSubmit">
+    <view class="section section_gap">
+      <view class="section_title">店铺图：</view>
+      <view class="section_content">
+        <view class="shop_img_box">
+          <image wx:if="{{shop_img}}" src="shop_img"></image>
+          <view wx:else catchtap="shopImgUpload">上传</view>
+        </view>
+      </view>
+    </view>
+    <view class="section section_gap">
+      <view class="section_title">店铺名称：</view>
+      <view class="section_content"><input name="shopName" placeholder="" /></view>
+    </view>
+    <view class="section section_gap">
+      <view class="section_title">店铺类型：</view>
+      <view class="section_content">
+      
+        <picker bindchange="bindPickerChange" range-key="dataName" value="{{index}}" range="{{shopTypeArr}}">
+          <view class="picker">
+            当前选择：{{shopTypeArr[index].dataName}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section section_gap">
+      <view class="section_title">店铺名称：</view>
+      <view class="section_content"><input name="shopName" placeholder="" /></view>
+    </view>
+    <view class="btn-area">
+      <button formType="submit">保存</button>
+    </view>
+  </form>
+</view>

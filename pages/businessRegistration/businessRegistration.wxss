@@ -1,0 +1,26 @@
+/* pages/businessRegistration/businessRegistration.wxss */
+.businessRegistration{
+
+}
+.section{
+  display: flex;
+  border-bottom:1px solid #dedede;
+  padding: 0 30rpx;
+}
+.section_title{
+  color:#7A7A7A;
+  line-height:80rpx;
+  padding-right:10rpx;
+}
+.section_content{
+  flex: 1;
+}
+.section_content>input{
+  padding-top: 16rpx;
+}
+.shop_img_box{
+  text-align: right;
+}
+.shop_img_box image,.shop_img_box view{
+  line-height:80rpx;
+}

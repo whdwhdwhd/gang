@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/businessRegistration/businessRegistration",
     "pages/home/home",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/order/order",
+    "pages/index/index",
     "pages/my/my",
     "pages/order/whole/whole",
     "pages/order/service/service",

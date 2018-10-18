@@ -1,4 +1,10 @@
 <!--pages/my/my.wxml-->
 <view class="my">
   我的
+  <view class="my-top">
+    <view class="my-top-cont"></view>
+  </view>
+  <view class="my-cont">
+    <navigator url="/pages/businessRegistration/businessRegistration">商家入驻</navigator>
+  </view>
 </view>
