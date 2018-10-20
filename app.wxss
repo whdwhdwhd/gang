@@ -3,7 +3,9 @@ view , page {
   padding: 0px;
   margin: 0px;
 }
-
+view,text,input{
+  font-size: 28rpx;
+}
 .page {
   height: 100%;
 }

@@ -1,6 +1,6 @@
 /* pages/businessRegistration/businessRegistration.wxss */
 .businessRegistration{
-
+  border-top:1px solid #dedede;
 }
 .section{
   display: flex;
@@ -18,9 +18,45 @@
 .section_content>input{
   padding-top: 16rpx;
 }
+.section_content>picker{
+  padding-top: 20rpx;
+}
 .shop_img_box{
   text-align: right;
+  font-size: 0;
+}
+.shop_img_box>image{
+  width: 80rpx;
+  height:80rpx;
+  border-radius: 40rpx;
 }
 .shop_img_box image,.shop_img_box view{
   line-height:80rpx;
+}
+.shop-time>picker{
+  display: inline-block;
+  width:200rpx;
+}
+.shop-time>picker view,.shop-time>picker text{
+  text-align: center;
+}
+.btn-area{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+.btn-area button{
+  margin: 0 auto;
+  /* width: 400rpx; */
+  /* border-radius: 44rpx; */
+}
+.shop_img .section_title{
+  line-height:100rpx;
+}
+.shop_img .section_content image,.shop_img .section_content text{
+  margin-top:10rpx;
+  line-height:100rpx;
+}
+.shop_img .shop_img_box view{
+  margin-top:10rpx;
 }

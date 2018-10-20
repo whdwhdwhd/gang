@@ -1,36 +1,94 @@
 <!--pages/businessRegistration/businessRegistration.wxml-->
 <view class="businessRegistration">
   <form bindsubmit="formSubmit">
-    <view class="section section_gap">
+    <view class="section shop_img section_gap">
       <view class="section_title">店铺图：</view>
       <view class="section_content">
         <view class="shop_img_box">
-          <image wx:if="{{shop_img}}" src="shop_img"></image>
+          <image wx:if="{{aShopImagePath}}" src="{{aShopImagePath}}"></image>
           <view wx:else catchtap="shopImgUpload">上传</view>
         </view>
       </view>
     </view>
     <view class="section section_gap">
       <view class="section_title">店铺名称：</view>
-      <view class="section_content"><input name="shopName" placeholder="" /></view>
+      <view class="section_content"><input name="shopName" placeholder="请输入店铺名称" /></view>
     </view>
     <view class="section section_gap">
       <view class="section_title">店铺类型：</view>
       <view class="section_content">
       
-        <picker bindchange="bindPickerChange" range-key="dataName" value="{{index}}" range="{{shopTypeArr}}">
+        <picker bindchange="bindPickerChange" range-key="dataName" value="{{shopTypeArrIndex}}" range="{{shopTypeArr}}">
           <view class="picker">
-            当前选择：{{shopTypeArr[index].dataName}}
+            <block wx:if="{{shopTypeArr[shopTypeArrIndex].dataName}}">
+              {{shopTypeArr[shopTypeArrIndex].dataName}}
+            </block>
+            <block wx:else>
+              <text>请选择店铺类型</text>
+            </block>
           </view>
         </picker>
       </view>
     </view>
     <view class="section section_gap">
-      <view class="section_title">店铺名称：</view>
-      <view class="section_content"><input name="shopName" placeholder="" /></view>
+      <view class="section_title">联系人：</view>
+      <view class="section_content"><input name="shopLxr" placeholder="请输入联系人" /></view>
+    </view>
+    <view class="section section_gap">
+      <view class="section_title">手机号码：</view>
+      <view class="section_content"><input name="shopPhone" type="number" placeholder="请输入手机号码" /></view>
+    </view>
+    <view class="section section_gap">
+      <view class="section_title">座机号码：</view>
+      <view class="section_content"><input name="shopLandline" type="number" placeholder="请输入座机号码" /></view>
+    </view>
+    <view class="section section_gap">
+      <view class="section_title">所在地区：</view>
+      <view class="section_content">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+          <view class="picker">
+          <block wx:if="{{region.length>0}}">
+            {{region[0]}} {{region[1]}} {{region[2]}}
+          </block>
+          <block wx:else>
+            <text>请选择所在地区</text>
+          </block>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="section section_gap">
+      <view class="section_title">详细地址：</view>
+      <view class="section_content"><input name="shopAddress" placeholder="请输入详细地址" /></view>
+    </view>
+    <view class="section section_gap">
+      <view class="section_title">工作时间：</view>
+      <view class="section_content shop-time">
+        <picker mode="time" value="{{startTime}}" start="09:01" end="21:01" bindchange="bindTimeStartChange">
+          <view class="picker">
+            <block wx:if="{{startTime}}">
+              {{startTime}}
+            </block>
+            <block wx:else>
+              <text>请选择开始时间</text>
+            </block>
+          </view>
+        </picker>
+        <text>-----</text>
+        <picker mode="time" value="{{endTime}}" start="09:01" end="21:01" bindchange="bindTimeEndChange">
+          <view class="picker">
+            <block wx:if="{{endTime}}">
+              {{endTime}}
+            </block>
+            <block wx:else>
+              <text>请选择结束时间</text>
+            </block>
+          </view>
+        </picker>
+      </view>
     </view>
     <view class="btn-area">
-      <button formType="submit">保存</button>
+      <button type="warn" formType="submit">保存</button>
     </view>
   </form>
 </view>

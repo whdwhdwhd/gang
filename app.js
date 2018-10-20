@@ -1,15 +1,17 @@
 //app.js
+var util = require('utils/util.js');
 App({
   onLaunch: function () {
     // 展示本地存储能力
-    var _this=this,logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    var _this=this;
 
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        util.http(util.urls.urls_getOpenId(), { js_code: res.code}, "POST", (res) => {
+          _this.globalData.userInfo.unionId = res.unionId;
+        })
       }
     })
     this.getlocationFun(function(){
@@ -96,7 +98,8 @@ App({
   globalData: {
     userInfo: {
       nickName:"",
-      avatarUrl:""
+      avatarUrl:"",
+      unionId:""
     },
     userLocation:{
       latitude:"",
