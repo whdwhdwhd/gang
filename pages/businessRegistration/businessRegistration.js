@@ -1,5 +1,6 @@
 // pages/businessRegistration/businessRegistration.js
-var util = require('../../utils/util.js');
+const util = require('../../utils/util.js');
+const app = getApp();
 Page({
 
   /**
@@ -45,7 +46,51 @@ Page({
   },
   //数据提交
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    var _this = this, saveData = e.detail.value;
+    saveData.unionId = app.globalData.userInfo.unionId;
+    saveData.shopImagePath = this.data.shopImagePath;
+    saveData.shopImageName = this.data.shopImageName;
+    saveData.shopProvince = this.data.region[0] ? this.data.region[0]:"";
+    saveData.shopCity = this.data.region[1] ? this.data.region[1] : "";
+    saveData.shopCounty = this.data.region[2] ? this.data.region[2] : "";
+    saveData.addressAll = saveData.shopProvince + saveData.shopCity + saveData.shopCounty + saveData.shopAddress;
+    console.log(saveData)
+    //验证必填项
+    if (this.validateSubData(saveData)){
+      util.http(util.urls.urls_saveUpdShopInfo(), saveData, "POST", (res) => {
+        app.globalData.userInfo.shopId = res.id;
+        wx.showToast({
+          title: "保存成功"
+        })
+      })
+    }
+  },
+  validateSubData:function(data){
+    if (!data.shopImagePath){
+      return this.wxShowToast("请上传店铺图");
+    } else if (!data.shopName){
+      return this.wxShowToast("请输入店铺名称");
+    } else if (!data.shopType) {
+      return this.wxShowToast("请输入店铺类型");
+    } else if (!data.shopLxr) {
+      return this.wxShowToast("请输入联系人");
+    } else if (!(data.shopPhone || data.shopLandline)) {
+      return this.wxShowToast("请输入手机号码或座机号码");
+    } else if (!data.shopProvince) {
+      return this.wxShowToast("请选择所在地区");
+    } else if (!data.shopType) {
+      return this.wxShowToast("请输入详细地址");
+    } else if (data.shopTimeStart && data.shopTimeEnd) {
+      return this.wxShowToast("请选择工作时间");
+    }
+    return true;
+  },
+  wxShowToast:function(txt){
+    wx.showToast({
+      icon: "none",
+      title: txt
+    })
+    return false;
   },
   //图片上传
   shopImgUpload:function(){
@@ -118,8 +163,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(util.getThumbnail("excellentLife/2018-10-19/547eaf4916b948daac8f05c469dd08bd.jpg"))
-    this.shopType()
+    var _this = this;
+    if (app.globalData.userInfo.unionId) {
+      _this.shopType()
+    } else {
+      app.getUnionId(function () {
+        _this.shopType()
+      })
+    }
   },
 
   /**

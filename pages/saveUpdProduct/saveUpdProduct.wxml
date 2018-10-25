@@ -1,0 +1,31 @@
+<!--pages/saveUpdProduct/saveUpdProduct.wxml-->
+<view class="saveUpdProduct">
+  <form bindsubmit="formSubmit">
+    <view class="section section_gap">
+      <view class="section_title">服务名称：</view>
+      <view class="section_content"><input name="productName" placeholder="请输入服务名称" /></view>
+    </view>
+    <view class="section section_gap">
+      <view class="section_title">服务金额/元：</view>
+      <view class="section_content"><input name="productMoney" placeholder="请输入服务金额/元" /></view>
+    </view>
+    <view class="section section_gap">
+      <view class="section_title">服务时长/分：</view>
+      <view class="section_content"><input name="productDuration" placeholder="请输入服务时长/分" /></view>
+    </view>
+    <view class="section section_gap">
+      <view class="section_title">服务次/人：</view>
+      <view class="section_content"><input name="productCount" placeholder="请输入服务次/人" /></view>
+    </view>
+    <view class="section section_gap">
+      <view class="section_title">服务描述：</view>
+      <view class="section_content">
+        <textarea name="productDesc" bindblur="bindTextAreaBlur" auto-height placeholder="请输入服务描述" />
+      </view>
+    </view>
+    <view class="btn-area">
+      <button type="warn" formType="submit">保存</button>
+    </view>
+  </form>
+</view>
+

@@ -17,8 +17,7 @@
     <view class="section section_gap">
       <view class="section_title">店铺类型：</view>
       <view class="section_content">
-      
-        <picker bindchange="bindPickerChange" range-key="dataName" value="{{shopTypeArrIndex}}" range="{{shopTypeArr}}">
+        <picker bindchange="bindPickerChange" name="shopType" range-key="dataName" value="{{shopTypeArrIndex}}" range="{{shopTypeArr}}">
           <view class="picker">
             <block wx:if="{{shopTypeArr[shopTypeArrIndex].dataName}}">
               {{shopTypeArr[shopTypeArrIndex].dataName}}

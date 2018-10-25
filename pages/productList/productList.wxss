@@ -1,0 +1,14 @@
+/* pages/productList/productList.wxss */
+.productList{
+  border-top:1px solid #dedede;
+}
+.productList-list{
+  line-height: 80rpx;
+  padding-left: 20rpx;
+  border-bottom:1px solid #dedede;
+}
+.productList-addBtn{
+  position: fixed;
+  bottom: 0;
+  width:100%;
+}

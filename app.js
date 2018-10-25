@@ -4,20 +4,26 @@ App({
   onLaunch: function () {
     // 展示本地存储能力
     var _this=this;
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        util.http(util.urls.urls_getOpenId(), { js_code: res.code}, "POST", (res) => {
-          _this.globalData.userInfo.unionId = res.unionId;
-        })
-      }
-    })
+    // this.getUnionId();
     this.getlocationFun(function(){
       _this.getSettingUserInfoFun()
     })
     
+  },
+  //获取unionId
+  getUnionId:function(callback){
+    var _this=this;
+    // 登录
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        util.http(util.urls.urls_getOpenId(), { jsCode: res.code }, "POST", (res) => {
+          _this.globalData.userInfo.unionId = res.unionId;
+          _this.globalData.userInfo.shopId = res.shopInfo.id;
+          callback && callback()
+        })
+      }
+    })
   },
   //获取地理位置权限
   getSettingLocationFun(){
@@ -89,7 +95,6 @@ App({
     // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
     wx.getUserInfo({
       success: res => {
-        console.log(res)
         _this.globalData.userInfo.nickName = res.userInfo.nickName;
         _this.globalData.userInfo.avatarUrl = res.userInfo.avatarUrl;
       }
@@ -99,7 +104,8 @@ App({
     userInfo: {
       nickName:"",
       avatarUrl:"",
-      unionId:""
+      unionId:"",
+      shopId:""
     },
     userLocation:{
       latitude:"",

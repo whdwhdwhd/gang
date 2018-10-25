@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/businessRegistration/businessRegistration",
+    "pages/productList/productList",
     "pages/home/home",
     "pages/logs/logs",
     "pages/order/order",
@@ -9,7 +9,9 @@
     "pages/order/whole/whole",
     "pages/order/service/service",
     "pages/order/evaluate/evaluate",
-    "pages/order/payment/paymen"
+    "pages/businessRegistration/businessRegistration",
+    "pages/order/payment/paymen",
+    "pages/saveUpdProduct/saveUpdProduct"
   ],
   "window": {
     "backgroundTextStyle": "light",

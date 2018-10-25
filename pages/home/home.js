@@ -163,9 +163,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    util.http("http://172.30.1.21:8099/shopInfo/saveUpdShopInfo?shopName=贷款的时贷款的时刻", {}, (res)=>{
-      console.log(res)
-    })
     // wx.request({
     //   url: 'http://172.30.1.21:8099/shopInfo/saveUpdShopInfo?shopName=贷款的时贷款的时刻', //仅为示例，并非真实的接口地址
     //   data: {

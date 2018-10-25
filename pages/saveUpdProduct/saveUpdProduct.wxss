@@ -1,0 +1,39 @@
+/* pages/saveUpdProduct/saveUpdProduct.wxss */
+/* pages/businessRegistration/businessRegistration.wxss */
+.saveUpdProduct{
+  border-top:1px solid #dedede;
+}
+.section{
+  display: flex;
+  border-bottom:1px solid #dedede;
+  padding: 0 30rpx;
+}
+.section_title{
+  color:#7A7A7A;
+  line-height:80rpx;
+  padding-right:10rpx;
+}
+.section_content{
+  flex: 1;
+}
+.section_content textarea{
+  width: 527rpx;
+  margin-top:22rpx;
+  line-height:32rpx;
+}
+.section_content>input{
+  padding-top: 16rpx;
+}
+.section_content>picker{
+  padding-top: 20rpx;
+}
+.btn-area{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+.btn-area button{
+  margin: 0 auto;
+  /* width: 400rpx; */
+  /* border-radius: 44rpx; */
+}

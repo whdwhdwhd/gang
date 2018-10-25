@@ -22,7 +22,7 @@ const http = function (url, data, method, successFun, failFun){
     data: data,
     method: method,
     header: {
-      'content-type': 'application/json' // 默认值
+      'content-type': 'application/x-www-form-urlencoded' // 默认值
     },
     success(res) {
       if(res.data.code===200){
@@ -46,8 +46,8 @@ const getThumbnail=function(url){
   url2 = url.substr(index+1);
   return url1 + "A_" + url2;
 }
-//接口综合
-const portUrl = "http://172.30.1.21:8099/";
+//接口综合  http://47.104.201.33:8080/  阿里  http://172.30.1.21:8080/  本地
+const portUrl = "http://172.30.1.21:8080/";  
 const urls={
   //获取openId
   urls_getOpenId(){return portUrl + "login/findOpenId";},
@@ -56,7 +56,26 @@ const urls={
   //新增/修改 商铺
   urls_saveUpdShopInfo() { return portUrl + "shopInfo/saveUpdShopInfo"; },
   //上传图片
-  urls_upload() { return portUrl + "file/upload"; }
+  urls_upload() { return portUrl + "file/upload"; },
+  //查询商品列表
+  urls_productList() { return portUrl + "product/findProductList" },
+  //新增/修改商品信息
+  urls_product_saveUpdProduct() { return portUrl + "product/saveUpdProduct" },
+  //查询商品信息
+  urls_findProductById() { return portUrl +"product/findProductById"},
+  //删除商品信息
+  urls_deleteProduct() { return portUrl + "product/deleteProduct" },
+  //新增评论
+  urls_saveUpdAppraise() { return portUrl + "appraise/saveUpdAppraise" },
+  //刪除评论
+  urls_saveUpdAppraise() { return portUrl + "appraise/deleteAppraise" },
+  //根据ID查找评论
+  urls_saveUpdAppraise() { return portUrl + "appraise/findAppraiseById" },
+  //根据商品ID查找评论
+  urls_saveUpdAppraise() { return portUrl + "appraise/findAppraiseByProductId" },
+  //根据商鋪ID查找评论
+  urls_saveUpdAppraise() { return portUrl + "appraise/findAppraiseByShopId" }
+
 }
 module.exports = {
   formatTime: formatTime,
