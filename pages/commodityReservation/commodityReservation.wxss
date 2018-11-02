@@ -1,0 +1,58 @@
+/* pages/commodityReservation/commodityReservation.wxss */
+.commodityReservation{
+  padding: 0 20rpx 80rpx 20rpx;
+}
+.commodityReservation-product{
+  height: 200rpx;
+  display: flex;
+}
+.commodityReservation-product-img{
+  
+}
+.commodityReservation-product-img image{
+  display: block;
+  width:300rpx;
+  height:200rpx;
+}
+.commodityReservation-product-cont{
+  flex: 1;
+  line-height: 60rpx;
+}
+.commodityReservation-product-cont-money{
+  float: right;
+}
+.commodityReservation-dateNodeDtoList-tabs-navs{
+  display: flex;
+  width:100%;
+}
+.commodityReservation-dateNodeDtoList-tabs-navs .activeNav{
+  color: #E64340;
+}
+.commodityReservation-dateNodeDtoList-tabs-nav{
+  flex:1;
+  text-align: center;
+}
+.commodityReservation-dateNodeDtoList-tabs-conts{
+  padding: 10rpx;
+}
+.commodityReservation-dateNodeDtoList-tabs-cont{
+  width: 100%;
+}
+.commodityReservation-dateNodeDtoList-tabs-cont view{
+  display: inline-block;
+  width:33.3%;
+  padding: 10rpx 0;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 32rpx;
+  border: 2rpx solid #fff;
+}
+.commodityReservation-dateNodeDtoList-tabs-conts .activeTime{
+  border-color: #ccc;
+  box-sizing: border-box;
+}
+.commodityReservation-footer{
+  position: fixed;
+  bottom: 0;
+  width:100%;
+}

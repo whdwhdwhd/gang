@@ -1,0 +1,26 @@
+<!--pages/commodityReservation/commodityReservation.wxml-->
+<view class="commodityReservation">
+  <view class="commodityReservation-product">
+    <view class="commodityReservation-product-img"><image :src="{{shopInfo.shopImagePath}}"></image></view>
+    <view class="commodityReservation-product-cont">
+      <view>{{product.productName}} <text class="commodityReservation-product-cont-money">￥{{product.productMoney}}</text></view>
+      <view>{{shopInfo.shopName}}</view>
+      <view>{{shopInfo.shopProvince}}</view>
+    </view>
+  </view>
+  <view class="commodityReservation-dateNodeDtoList">
+    <view class="commodityReservation-dateNodeDtoList-tabs">
+      <view class="commodityReservation-dateNodeDtoList-tabs-navs">
+        <view class="commodityReservation-dateNodeDtoList-tabs-nav {{tabsInd===index?'activeNav':''}}" wx:for="{{dateNodeDtoList}}" wx:key="index" catchtap='setTabsIndFun' data-ind="{{index}}">{{item.weekDay}}<view>{{item.dateDayShort}}</view></view>
+      </view>
+      <view class="commodityReservation-dateNodeDtoList-tabs-conts">
+        <view class="commodityReservation-dateNodeDtoList-tabs-cont" wx:if="{{tabsInd===index}}" wx:for="{{dateNodeDtoList}}" wx:key="index">
+          <view class="{{(activetime.week===index && activetime.time===ind)?'activeTime':''}}" wx:for="{{item.dateInterMap}}" data-ind="{{ind}}" catchtap='setActiveTimeFun' wx:for-index="ind" wx:for-item="itemMap" wx:key="ind">{{itemMap}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="commodityReservation-footer">
+  <button type="warn" catchtap='appointmentBtnFun'>预约</button>
+</view>

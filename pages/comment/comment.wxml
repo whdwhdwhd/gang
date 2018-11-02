@@ -1,0 +1,4 @@
+<!--pages/comment/comment.wxml-->
+<view class="comment">
+  评论
+</view>

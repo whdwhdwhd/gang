@@ -27,9 +27,21 @@ Page({
   },
   //修改商品
   saveBtnFun:function(item){
-    debugger
+    var itemD = item.currentTarget.dataset.item;
     wx.navigateTo({
-      url: "/pages/saveUpdProduct/saveUpdProduct?id=" + item.id
+      url: "/pages/saveUpdProduct/saveUpdProduct?id=" + itemD.id + "&productName=" + itemD.productName + "&productMoney=" + itemD.productMoney + "&productDuration=" + itemD.productDuration + "&productCount=" + itemD.productCount + "&productDesc=" + itemD.productDesc + "&shopId=" + itemD.shopId
+    })
+  },
+  //删除商品
+  delBtnFun:function(e){
+    var _this = this, id = item.currentTarget.dataset.id;;
+    util.http(util.urls.urls_deleteProduct(), {
+      id: id
+    }, "POST", (res) => {
+      wx.showToast({
+        title: "删除成功"
+      })
+      _this.getProductList()
     })
   },
   /**
@@ -39,14 +51,10 @@ Page({
     console.log("回显")
     var _this = this;
     if (app.globalData.userInfo.unionId) {
-      _this.getProductList(function () {
-        _this.data.once = true;
-      })
+      _this.getProductList()
     } else {
       app.getUnionId(function () {
-        _this.getProductList(function () {
-          _this.data.once = true;
-        })
+        _this.getProductList()
       })
     }
   },

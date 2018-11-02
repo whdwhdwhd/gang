@@ -4,6 +4,7 @@
   <block wx:else>
     <view class="productList-list" wx:for="{{productList}}" data-item="{{item}}" catchtap='saveBtnFun'>
       {{item.productName}}
+      <view class="productList-del" data-id="{{item.id}}" catchtap='delBtnFun'>删除</view>
     </view>
   </block>
   <view class="productList-addBtn">

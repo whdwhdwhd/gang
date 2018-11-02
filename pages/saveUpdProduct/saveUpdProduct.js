@@ -7,14 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    formData:{}
   },
   //数据提交
   formSubmit: function (e) {
     var _this = this, saveData = e.detail.value;
     saveData.shopId = app.globalData.userInfo.shopId;
     //验证必填项
-    debugger
     if (this.validateSubData(saveData)) {
       util.http(util.urls.urls_product_saveUpdProduct(), saveData, "POST", (res) => {
         wx.showToast({
@@ -45,11 +44,14 @@ Page({
     }
     return true;
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      formData: options
+    })
   },
 
   /**

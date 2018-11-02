@@ -17,6 +17,10 @@ const http = function (url, data, method, successFun, failFun){
   wx.showLoading({
     mask:true,
   })
+  console.log(url.indexOf("/login/findOpenId") != -1)
+  if (url.indexOf("/login/findOpenId")==-1){
+    data.unionId = wx.getStorageSync('unionId')
+  }
   wx.request({
     url: url, //仅为示例，并非真实的接口地址
     data: data,
@@ -47,7 +51,7 @@ const getThumbnail=function(url){
   return url1 + "A_" + url2;
 }
 //接口综合  http://47.104.201.33:8080/  阿里  http://172.30.1.21:8080/  本地
-const portUrl = "http://172.30.1.21:8080/";  
+const portUrl = "http://47.104.201.33:8080/";  
 const urls={
   //获取openId
   urls_getOpenId(){return portUrl + "login/findOpenId";},
@@ -68,13 +72,18 @@ const urls={
   //新增评论
   urls_saveUpdAppraise() { return portUrl + "appraise/saveUpdAppraise" },
   //刪除评论
-  urls_saveUpdAppraise() { return portUrl + "appraise/deleteAppraise" },
+  urls_deleteAppraise() { return portUrl + "appraise/deleteAppraise" },
   //根据ID查找评论
-  urls_saveUpdAppraise() { return portUrl + "appraise/findAppraiseById" },
+  urls_findAppraiseById() { return portUrl + "appraise/findAppraiseById" },
   //根据商品ID查找评论
-  urls_saveUpdAppraise() { return portUrl + "appraise/findAppraiseByProductId" },
+  urls_findAppraiseByProductId() { return portUrl + "appraise/findAppraiseByProductId" },
   //根据商鋪ID查找评论
-  urls_saveUpdAppraise() { return portUrl + "appraise/findAppraiseByShopId" }
+  urls_findAppraiseByShopId() { return portUrl + "appraise/findAppraiseByShopId" },
+  //点击商品进入预约的界面
+  urls_reservProduct() { return portUrl + "product/reservProduct" },
+  //新增预约
+  urls_saveUpdReservation() { return portUrl + "reservation/saveUpdReservation" }
+
 
 }
 module.exports = {

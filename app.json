@@ -1,17 +1,20 @@
 {
   "pages": [
-    "pages/productList/productList",
     "pages/home/home",
     "pages/logs/logs",
     "pages/order/order",
     "pages/index/index",
     "pages/my/my",
+    "pages/comment/comment",
+    "pages/shopDetails/shopDetails",
     "pages/order/whole/whole",
     "pages/order/service/service",
     "pages/order/evaluate/evaluate",
     "pages/businessRegistration/businessRegistration",
     "pages/order/payment/paymen",
-    "pages/saveUpdProduct/saveUpdProduct"
+    "pages/productList/productList",
+    "pages/saveUpdProduct/saveUpdProduct",
+    "pages/commodityReservation/commodityReservation"
   ],
   "window": {
     "backgroundTextStyle": "light",

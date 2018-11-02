@@ -7,5 +7,6 @@
   <view class="my-cont">
     <navigator url="/pages/businessRegistration/businessRegistration">商家入驻</navigator>
     <navigator url="/pages/productList/productList">商品列表</navigator>
+    <navigator url="/pages/comment/comment">评论</navigator>
   </view>
 </view>

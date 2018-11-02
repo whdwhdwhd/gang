@@ -14,20 +14,20 @@ Page({
     endTime:"",  //结束时间
     aShopImagePath: "", //文件路经
     shopImagePath:"", //文件路经
-    shopImageName:""  //文件名称
+    shopImageName:"",  //文件名称
+    startTimeArray: [["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" ], ["00", "30"]],
+    endTimeArray: [["13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" ], ["00", "30"]]
   },
   //开始时间
   bindTimeStartChange(e){
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      startTime: e.detail.value
+      startTime: this.data.startTimeArray[0][e.detail.value[0]] + ":" + this.data.startTimeArray[1][e.detail.value[1]]
     })
   },
   //结束时间
   bindTimeEndChange(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      endTime: e.detail.value
+      endTime: this.data.endTimeArray[0][e.detail.value[0]] + ":" + this.data.endTimeArray[1][e.detail.value[1]]
     })
   },
   //店铺类型
@@ -61,6 +61,9 @@ Page({
         app.globalData.userInfo.shopId = res.id;
         wx.showToast({
           title: "保存成功"
+        })
+        wx.navigateTo({
+          url: "/pages/my/my"
         })
       })
     }

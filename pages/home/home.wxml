@@ -1,6 +1,12 @@
 <!--pages/home/home.wxml-->
 <view class="home">
-  首页
+  <view class="home-Advertisement">首页广告模块</view>
+  
   <!-- <map id="map" longitude="116.36611" latitude="39.91231" scale="14" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 300px;"></map> -->
-
+  <view wx:if="{{homeProductList.length===0}}">暂无商品</view>
+  <view wx:else class="home-productList">
+    <view class="home-productList-list" wx:for="{{homeProductList}}" wx:key="{{index}}" data-item="{{item}}" catchtap='detailsBtnFun'>
+      {{item.productName}}
+    </view>
+  </view>
 </view>

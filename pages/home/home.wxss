@@ -1,1 +1,15 @@
 /* pages/home/home.wxss */
+.home{
+
+}
+.home-Advertisement{
+  height: 300rpx;
+}
+.home-productList{
+  border-top:1px solid #dedede;
+}
+.home-productList-list{
+  line-height: 80rpx;
+  padding-left: 20rpx;
+  border-bottom:1px solid #dedede;
+}
