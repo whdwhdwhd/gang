@@ -17,10 +17,6 @@ const http = function (url, data, method, successFun, failFun){
   wx.showLoading({
     mask:true,
   })
-  console.log(url.indexOf("/login/findOpenId") != -1)
-  if (url.indexOf("/login/findOpenId")==-1){
-    data.unionId = wx.getStorageSync('unionId')
-  }
   wx.request({
     url: url, //仅为示例，并非真实的接口地址
     data: data,
@@ -82,9 +78,9 @@ const urls={
   //点击商品进入预约的界面
   urls_reservProduct() { return portUrl + "product/reservProduct" },
   //新增预约
-  urls_saveUpdReservation() { return portUrl + "reservation/saveUpdReservation" }
-
-
+  urls_saveUpdReservation() { return portUrl + "reservation/saveUpdReservation" },
+  //查找附近的商鋪信息
+  urls_findShopInfoList() { return portUrl + "shopInfo/findShopInfoList" },
 }
 module.exports = {
   formatTime: formatTime,

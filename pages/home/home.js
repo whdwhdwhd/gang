@@ -29,13 +29,12 @@ Page({
     })
   },
   //查询商品
-  getProductList: function (callback) {
+  getProductList: function () {
     var _this = this;
-    util.http(util.urls.urls_productList(), { shopId: app.globalData.userInfo.shopId }, "POST", (res) => {
+    util.http(util.urls.urls_findShopInfoList(), { userLng: app.globalData.userLocation.latitude, userLat: app.globalData.userLocation.longitude }, "POST", (res) => {
       _this.setData({
         homeProductList: res
       })
-      callback && callback()
     })
   },
   /**

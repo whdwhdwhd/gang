@@ -21,3 +21,6 @@ view,text,input{
 .disNone{
   display: none;
 }
+.fr{
+  float: right;
+}

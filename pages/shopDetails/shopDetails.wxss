@@ -1,1 +1,37 @@
 /* pages/shopDetails/shopDetails.wxss */
+.shopDetails{
+  padding: 0 20rpx;
+}
+.homeProductList-tit{
+  line-height: 80rpx;
+  font-size: 32rpx;
+  color:#7A7A7A;
+  border-bottom:1px dashed #dedede;
+}
+.home-productList{
+  color:#7A7A7A;
+}
+.home-productList-list{
+  position: relative;
+  line-height: 80rpx;
+  padding-left: 20rpx;
+  border-bottom:1px dashed #dedede;
+}
+.home-productList-list>view{
+  padding-right: 30rpx;
+}
+.wb_arrow{
+  position: absolute;
+  right: 0rpx;
+  top: 27rpx;
+  display: inline-block;
+  border-right: 2px solid #dedede;
+  border-top: 2px solid #dedede;
+  height: 10px;
+  width: 10px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  /*不加这两个属性三角会比上一个略丑, 大家可以试一下*/
+  border-left: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+}
