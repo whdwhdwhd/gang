@@ -1,0 +1,9 @@
+/* pages/shopOrder/shopOrder.wxss */
+.shopOrderList{
+  padding: 0 40rpx;
+}
+.shopOrderList-cont{
+  line-height: 48rpx;
+  color:#7a7a7a;
+  margin-bottom: 40rpx;
+}

@@ -10,16 +10,69 @@
   <view style="position: absolute;top: 68rpx;width: 100%;height:{{contentHeight}}px">
     <swiper current="{{activeIndex}}" duration="300" bindchange="bindChange">
       <swiper-item>
-        <view>全部</view>
+        <view>
+          <view class="orderList" wx:for="{{orderList[0]}}" wx:key="index">
+            <view class="orderList-shopName">{{item.shopName}}
+                <block wx:if="{{item.serviceStatus=='14'}}">
+                  <text class="orderList-status">待服务</text>
+                </block>
+                <block wx:elif="{{item.serviceStatus=='15'}}">
+                  <text class="orderList-status">待评价</text>
+                </block>
+              </view>
+              <view class="orderList-cont">
+                <view class="orderList-cont-productName">{{item.productName}}<text class="orderList-cont-reserMoney">￥{{item.reserMoney}}</text></view>
+                <view class="orderList-cont-btn">
+                  <block wx:if="{{item.serviceStatus=='14'}}">
+                    <button size="mini" data-item="{{item}}" catchtap='cancelReservation'>取消预约</button>
+                  </block>
+                  <block wx:elif="{{item.serviceStatus=='15'}}">
+                    <button size="mini">去评价</button>
+                  </block>
+                </view>
+              </view>
+          </view>
+        </view>
       </swiper-item>
       <swiper-item>
-        <view>待服务</view>
+        <view>
+          <view class="orderList" wx:for="{{orderList[1]}}" wx:key="index">
+            <view class="orderDf">
+              <view class="orderList-shopName">{{item.shopName}}
+                <block wx:if="{{item.serviceStatus=='14'}}">
+                  <text class="orderList-status">待服务</text>
+                </block>
+                <block wx:elif="{{item.serviceStatus=='15'}}">
+                  <text class="orderList-status">待评价</text>
+                </block>
+              </view>
+              <view class="orderList-cont">
+                <view class="orderList-cont-productName">{{item.productName}}<text class="orderList-cont-reserMoney">￥{{item.reserMoney}}</text></view>
+                <view class="orderList-cont-btn"><button size="mini" data-item="{{item}}" catchtap='cancelReservation'>取消预约</button></view>
+              </view>
+            </view>
+          </view>
+        </view>
       </swiper-item>
       <swiper-item>
-        <view>待付款</view>
-      </swiper-item>
-      <swiper-item>
-        <view>待评价</view>
+        <view>
+          <view class="orderList" wx:for="{{orderList[2]}}" wx:key="index">
+            <view class="orderDp">
+              <view class="orderList-shopName">{{item.shopName}}
+                <block wx:if="{{item.serviceStatus=='14'}}">
+                  <text class="orderList-status">待服务</text>
+                </block>
+                <block wx:elif="{{item.serviceStatus=='15'}}">
+                  <text class="orderList-status">待评价</text>
+                </block>
+              </view>
+              <view class="orderList-cont">
+                <view class="orderList-cont-productName">{{item.productName}}<text class="orderList-cont-reserMoney">￥{{item.reserMoney}}</text></view>
+                <view class="orderList-cont-btn"><button size="mini">去评价</button></view>
+              </view>
+            </view>
+          </view>
+        </view>
       </swiper-item>
     </swiper> 
   </view>

@@ -47,6 +47,22 @@ swiper {
 
 swiper-item{
   width: 100%;
-  padding-top: 20rpx;
-  text-align: center;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.orderList{
+  padding: 10rpx 20rpx 10rpx 20rpx;
+  margin-top: 40rpx;
+  border: 2rpx solid #dedede;
+  line-height:64rpx;
+  border-radius:20rpx;
+}
+.orderList-shopName{
+  font-size:32rpx;
+}
+.orderList-status,.orderList-cont-reserMoney,.orderList-cont-btn button{
+  float: right;
+}
+.orderList-cont-btn{
+  height:70rpx;
 }

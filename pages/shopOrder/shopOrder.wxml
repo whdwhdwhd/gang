@@ -1,0 +1,13 @@
+<!--pages/shopOrder/shopOrder.wxml-->
+<view class="shopOrder">
+  <view class="shopOrderList">
+    <view class="shopOrderList-cont" wx:for="{{shopOrderList}}" wx:key="index" data-item="{{item}}">
+      <view><text class="shopOrderList-cont-tit">商品：</text><text class="shopOrderList-cont-c">{{item.productName}}</text></view>
+      <view><text class="shopOrderList-cont-tit">服务时间：</text><text class="shopOrderList-cont-c">{{item.serviceDate}} {{item.serviceWeek}} {{item.servicePeriod}}</text></view>
+      <view><text class="shopOrderList-cont-tit">金额：</text><text class="shopOrderList-cont-c">￥{{item.reserMoney}}</text></view>
+      <view wx:if="{{item.serviceStatus==15}}"><button disabled="true">已确认服务</button></view>
+      <view wx:elif="{{item.serviceStatus==14}}"><button data-item="{{item}}" catchtap='confirmService'>确认服务</button></view>
+    </view>
+  </view>
+  
+</view>

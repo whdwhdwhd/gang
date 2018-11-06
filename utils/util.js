@@ -17,6 +17,9 @@ const http = function (url, data, method, successFun, failFun){
   wx.showLoading({
     mask:true,
   })
+  if (url.indexOf("login/findOpenId")==-1){
+    data.unionId = wx.getStorageSync('unionId')
+  }
   wx.request({
     url: url, //仅为示例，并非真实的接口地址
     data: data,
@@ -80,7 +83,25 @@ const urls={
   //新增预约
   urls_saveUpdReservation() { return portUrl + "reservation/saveUpdReservation" },
   //查找附近的商鋪信息
-  urls_findShopInfoList() { return portUrl + "shopInfo/findShopInfoList" },
+  urls_findPageShopInfo() { return portUrl + "login/findPageShopInfo" },
+  //取消预约
+  urls_cancelReservation() { return portUrl + "reservation/cancelReservation" },
+  //确认已服务
+  urls_confirmReservation() { return portUrl + "reservation/confirmReservation" },
+  //根据门店查找订单
+  urls_findPageByShopId() { return portUrl + "reservation/findPageByShopId" },
+  //首页广告
+  urls_homeAd() { return portUrl + "login/homeAd" },
+  //审核门店
+  urls_reviewShopInfo() { return portUrl + "shopInfo/reviewShopInfo" },
+  //查看商鋪信息
+  urls_findShopInfoById() { return portUrl + "shopInfo/findShopInfoById" },
+  //关闭门店
+  urls_shutDownShopInfo() { return portUrl + "shopInfo/shutDownShopInfo" },
+  //我的评价
+  urls_findAppraiseByUserId() { return portUrl + "appraise/findAppraiseByUserId" },
+  //全部、待服务、待评价
+  urls_findPageByFwStatus() { return portUrl + "reservation/findPageByFwStatus" },
 }
 module.exports = {
   formatTime: formatTime,

@@ -14,7 +14,8 @@
     "pages/order/payment/paymen",
     "pages/productList/productList",
     "pages/saveUpdProduct/saveUpdProduct",
-    "pages/commodityReservation/commodityReservation"
+    "pages/commodityReservation/commodityReservation",
+    "pages/shopOrder/shopOrder"
   ],
   "window": {
     "backgroundTextStyle": "light",

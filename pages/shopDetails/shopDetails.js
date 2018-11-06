@@ -31,22 +31,21 @@ Page({
     })
   },
   //查询商品
-  getProductList: function (callback) {
+  getProductList: function (id) {
     var _this = this;
-    util.http(util.urls.urls_productList(), { shopId: app.globalData.userInfo.shopId }, "POST", (res) => {
+    util.http(util.urls.urls_productList(), { shopId: id }, "POST", (res) => {
       _this.setData({
         homeProductList: res
       })
-      callback && callback()
     })
   },
   onLoad: function (options) {
     var _this = this;
     if (app.globalData.userInfo.unionId) {
-      _this.getProductList()
+      _this.getProductList(options.id)
     } else {
       app.getUnionId(function () {
-        _this.getProductList()
+        _this.getProductList(options.id)
       })
     }
     // this.getShopComment(options.shopId)
