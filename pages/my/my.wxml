@@ -1,13 +1,19 @@
 <!--pages/my/my.wxml-->
 <view class="my">
-  我的
   <view class="my-top">
-    <view class="my-top-cont"></view>
+    <view class="my-top-cont">
+      <view class="my-top-cont-mT"></view>
+      <view class="my-top-cont-poa">
+        <view class="my-top-cont-poa-img"><image src="{{imgSrc}}"></image></view>
+        <view class="my-top-cont-poa-name">{{userName}}</view>
+      </view>
+    </view>
   </view>
   <view class="my-cont">
-    <navigator url="/pages/businessRegistration/businessRegistration">商家入驻</navigator>
-    <navigator url="/pages/shopOrder/shopOrder">商家订单</navigator>
-    <navigator url="/pages/productList/productList">商品列表</navigator>
-    <navigator url="/pages/comment/comment">评论</navigator>
+    <navigator url="/pages/businessRegistration/businessRegistration">商家入驻<view class="wb_arrow"></view></navigator>
+    <navigator url="/pages/shopOrder/shopOrder">商家订单<view class="wb_arrow"></view></navigator>
+    <navigator url="/pages/productList/productList">商品列表<view class="wb_arrow"></view></navigator>
+    <navigator url="/pages/myEvaluate/myEvaluate">我的评价<view class="wb_arrow"></view></navigator>
+    <navigator url="/pages/aboutUs/aboutUs">关于我们<view class="wb_arrow"></view></navigator>
   </view>
 </view>

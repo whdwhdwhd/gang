@@ -66,7 +66,7 @@ App({
     var _this=this;
     // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
     wx.getLocation({
-      type: 'wgs84',
+      type: 'gcj02',
       success: res => {
         _this.globalData.userLocation.latitude = res.latitude;
         _this.globalData.userLocation.longitude = res.longitude;

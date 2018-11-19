@@ -7,12 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //地图
-    id: 0,
-    latitude: 23.099994,
-    longitude: 113.324520,
-    width: 50,
-    height: 50,
     //列表
     homeProductList: [],
     homeAdTit: '',
@@ -22,11 +16,6 @@ Page({
     circular:true,
     interval: 5000,
     duration: 1000
-  },
-  onGotUserInfo: function (e) {
-    console.log(e.detail.errMsg)
-    console.log(e.detail.userInfo)
-    console.log(e.detail.rawData)
   },
   //首页广告   
   getHomeAd: function () {

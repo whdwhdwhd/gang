@@ -27,7 +27,7 @@
                     <button size="mini" data-item="{{item}}" catchtap='cancelReservation'>取消预约</button>
                   </block>
                   <block wx:elif="{{item.serviceStatus=='15'}}">
-                    <button size="mini">去评价</button>
+                    <button size="mini" data-item="{{item}}" catchtap='jumpComment'>去评价</button>
                   </block>
                 </view>
               </view>
@@ -68,7 +68,7 @@
               </view>
               <view class="orderList-cont">
                 <view class="orderList-cont-productName">{{item.productName}}<text class="orderList-cont-reserMoney">￥{{item.reserMoney}}</text></view>
-                <view class="orderList-cont-btn"><button size="mini">去评价</button></view>
+                <view class="orderList-cont-btn"><button size="mini" data-item="{{item}}" catchtap='jumpComment'>去评价</button></view>
               </view>
             </view>
           </view>

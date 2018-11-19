@@ -1,4 +1,7 @@
 /**app.wxss**/
+page{
+  background: #f4f4f4;
+}
 view , page {
   padding: 0px;
   margin: 0px;
@@ -23,4 +26,9 @@ view,text,input{
 }
 .fr{
   float: right;
+}
+.noData{
+  padding: 20rpx;
+  color:#7A7A7A;
+  background: #fff;
 }

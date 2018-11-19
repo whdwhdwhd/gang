@@ -65,7 +65,13 @@ Page({
         }
       }
     })
-    
+  },
+  //去评价  /pages/comment/comment
+  jumpComment: function (e) {
+    var _this = this, data = e.currentTarget.dataset.item;
+    wx.navigateTo({
+      url: "/pages/comment/comment?shopId=" + data.shopId + "&productId=" + data.productId + "&orderId=" + data.id
+    })
   },
   /**
    * 生命周期函数--监听页面加载

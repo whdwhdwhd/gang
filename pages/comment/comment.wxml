@@ -1,4 +1,21 @@
 <!--pages/comment/comment.wxml-->
 <view class="comment">
-  评论
+  <view class="comment-score">
+    <view class="comment-score-text">评分：</view>
+    <view class="comment-ww">
+      <view wx:for="{{5}}" wx:key="index" data-index="{{index}}" catchtap='setww'>
+        <image wx:if="{{(index+1)>starRating}}" src="../../imgs/ww.png"></image>
+        <image wx:else src="../../imgs/wy.png"></image>
+      </view>
+    </view>
+  </view>
+  <view><text>建议：</text><textarea value="{{comment}}" bindinput="bindinput" auto-height placeholder="请给商家提出宝贵的建议" /></view>
+  <view>
+    <checkbox-group bindchange="checkboxChange">
+      <checkbox value="{{isAnonyArr.name}}" class="cs" checked="{{isAnonyArr.checked}}"/>是否匿名   
+    </checkbox-group>
+  </view>
+  <view>
+    <button catchtap='subComment'>提交</button>
+  </view>
 </view>

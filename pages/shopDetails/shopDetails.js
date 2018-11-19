@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    shopInfo:{},
     commentList:[],
     homeProductList: []
   },
@@ -14,9 +15,20 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  //查询商铺评论
+  //跳转地图
+  jumpMap:function(){
+    wx.navigateTo({
+      url: "/pages/map/map?lat=" + this.data.shopInfo.lat + "&lng=" + this.data.shopInfo.lng + "&shopName=" + this.data.shopInfo.shopName
+    })
+  },
+  //查询商铺评论和商铺信息
   getShopComment: function (id) {
     var _this = this;
+    util.http(util.urls.urls_findShopInfoById(), { id: id }, "POST", (res) => {
+      _this.setData({
+        shopInfo: res
+      })
+    })
     util.http(util.urls.urls_findAppraiseByShopId(), { shopId: id }, "POST", (res) => {
       _this.setData({
         commentList: res
@@ -48,7 +60,7 @@ Page({
         _this.getProductList(options.id)
       })
     }
-    // this.getShopComment(options.shopId)
+    this.getShopComment(options.id)
   },
 
   /**

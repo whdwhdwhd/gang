@@ -28,7 +28,7 @@ const http = function (url, data, method, successFun, failFun){
       'content-type': 'application/x-www-form-urlencoded' // 默认值
     },
     success(res) {
-      if(res.data.code===200){
+      if(res.data.code===0){
         successFun && successFun(res.data.data)
       }else{
         failFun && failFun(res.data)
@@ -49,7 +49,7 @@ const getThumbnail=function(url){
   url2 = url.substr(index+1);
   return url1 + "A_" + url2;
 }
-//接口综合  http://47.104.201.33:8080/  阿里  http://172.30.1.21:8080/  本地
+//接口综合  http://47.104.201.33:8080/  阿里  http://192.168.3.150:8080/  本地
 const portUrl = "http://47.104.201.33:8080/";  
 const urls={
   //获取openId
@@ -83,7 +83,7 @@ const urls={
   //新增预约
   urls_saveUpdReservation() { return portUrl + "reservation/saveUpdReservation" },
   //查找附近的商鋪信息
-  urls_findPageShopInfo() { return portUrl + "login/findPageShopInfo" },
+  urls_findPageShopInfo() { return portUrl + "shopInfo/findPageShopInfo" },
   //取消预约
   urls_cancelReservation() { return portUrl + "reservation/cancelReservation" },
   //确认已服务
@@ -100,6 +100,8 @@ const urls={
   urls_shutDownShopInfo() { return portUrl + "shopInfo/shutDownShopInfo" },
   //我的评价
   urls_findAppraiseByUserId() { return portUrl + "appraise/findAppraiseByUserId" },
+  //关于我们
+  urls_usInfo() { return portUrl + "aboutUs/usInfo" },
   //全部、待服务、待评价
   urls_findPageByFwStatus() { return portUrl + "reservation/findPageByFwStatus" },
 }

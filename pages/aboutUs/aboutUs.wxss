@@ -1,0 +1,14 @@
+/* pages/aboutUs/aboutUs.wxss */
+.aboutUs{
+  padding: 20rpx 40rpx 0 40rpx;
+}
+.aboutUs>view{
+  text-align: center;
+  line-height: 60rpx;
+}
+.aboutUs-usDesc{
+  text-indent: 2em;
+}
+.aboutUs-usImagtPath image{
+  width:100%;
+}

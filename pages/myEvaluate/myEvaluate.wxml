@@ -1,0 +1,26 @@
+<!--pages/myEvaluate/myEvaluate.wxml-->
+<view class="myEvaluate">
+  <view>
+    <view class="commentList" wx:for="{{commentList}}" wx:for-item="comment" wx:key="index">
+      <view class="commentList-child"><text>{{comment.shopName}}</text></view>
+      <view class="commentList-child"><text>{{comment.productName}}</text></view>
+      <view class="commentList-child">
+        <block wx:if="{{comment.isAnony===0}}">匿名评论</block>
+        <block wx:else>未匿名评论</block>
+      </view>
+      <view class="comment-score">
+        <view class="comment-score-text">评分：</view>
+        <view class="comment-ww">
+          <view wx:for="{{5}}" wx:for-index="ind" wx:key="ind">
+            <image wx:if="{{(ind+1)>comment.starRating}}" src="../../imgs/ww.png"></image>
+            <image wx:else src="../../imgs/wy.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="textInd">{{comment.comment}}</view>
+      <view class="">
+        <button data-index="{{index}}" data-id="{{comment.id}}" catchtap='delCommentFun'>刪除</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -7,17 +7,64 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id:"",
-    shopId:""
+    orderId:"",
+    productId:"",
+    shopId:"",
+    starRating:0,
+    comment:"",
+    isAnonyArr: { name: "aa", checked: true },  
+    isAnony:0  // 0：是   1：否
   },
   //初始化页面
   initData: function (options){
     this.setData({
-      id: "1b69bd85a0df499db74f0efb5636854a",
-      shopId: app.globalData.userInfo.shopId
+      orderId: options.orderId,
+      shopId: options.shopId,
+      productId: options.productId
     })
   },
-  
+  //评分
+  setww:function(e){
+    var _this = this, index = e.currentTarget.dataset.index;
+    this.setData({
+      starRating: index+1
+    })
+  },
+  //提交评分
+  subComment(){
+    if(this.data.starRating){
+
+    }
+    util.http(util.urls.urls_saveUpdAppraise(), { 
+      shopId: this.data.shopId,
+      productId: this.data.productId,
+      orderId: this.data.orderId,
+      starRating: this.data.starRating,
+      comment: this.data.comment,
+      isAnony: this.data.isAnony
+    }, "POST", (res) => {
+      wx.showToast({
+        title: "提交成功"
+      })
+      wx.navigateBack({
+        delta: 1
+      })
+    })
+  },
+  //设置输入框的bindinput
+  bindinput:function(e){
+    this.setData({
+      comment: e.detail.value
+    })
+  },
+  //设置是否隐匿
+  checkboxChange:function(e){
+    if (e.detail.value.length>0){
+      this.data.isAnony=1
+    }else{
+      this.data.isAnony=0
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,6 +1,12 @@
-/* pages/comment/comment.wxss */
+/* pages/myEvaluate/myEvaluate.wxss */
 .comment{
-  padding: 20rpx 40rpx;
+  
+}
+.commentList{
+  margin-top: 20rpx;
+}
+.userName{
+  line-height: 42rpx;
 }
 .comment-score-text{
   display: inline-block;
@@ -19,6 +25,7 @@
   width: 40rpx;
   height: 40rpx;
 }
-.cs{
-  transform: scale(0.6,0.6);
+.textInd{
+  text-indent: 2em;
+  line-height: 42rpx;
 }

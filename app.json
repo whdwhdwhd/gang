@@ -7,15 +7,14 @@
     "pages/my/my",
     "pages/comment/comment",
     "pages/shopDetails/shopDetails",
-    "pages/order/whole/whole",
-    "pages/order/service/service",
-    "pages/order/evaluate/evaluate",
     "pages/businessRegistration/businessRegistration",
-    "pages/order/payment/paymen",
     "pages/productList/productList",
     "pages/saveUpdProduct/saveUpdProduct",
     "pages/commodityReservation/commodityReservation",
-    "pages/shopOrder/shopOrder"
+    "pages/shopOrder/shopOrder",
+    "pages/myEvaluate/myEvaluate",
+    "pages/aboutUs/aboutUs",
+    "pages/map/map"
   ],
   "window": {
     "backgroundTextStyle": "light",

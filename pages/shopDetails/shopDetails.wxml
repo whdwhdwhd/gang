@@ -1,11 +1,50 @@
 <!--pages/shopDetails/shopDetails.wxml-->
 <view class="shopDetails">
+  <view class="shopInfo">
+    <view class="shopInfo-img"><image src="{{shopInfo.shopImagePath}}"></image></view>
+    <view class="shopInfo-text">
+      <view class="shopInfo-text-left">
+        <view class="shopInfo-text-left-shopName">{{shopInfo.shopName}}</view>
+        <view><text></text>{{shopInfo.shopProvince}}{{shopInfo.shopCity}}{{shopInfo.shopCounty}}{{shopInfo.shopAddress}}</view>
+        <view><text>工作时间；</text>{{shopInfo.shopTimeEnd}}-{{shopInfo.shopTimeStart}}</view>
+      </view>
+      <view class="shopInfo-text-right" catchtap='jumpMap'>
+        地图
+        
+      </view>
+    </view>
+  </view>
   <view class="homeProductList-tit">选择商品</view>
-  <view wx:if="{{homeProductList.length===0}}">暂无商品</view>
+  <view class="noData" wx:if="{{homeProductList.length===0}}">暂无商品</view>
   <view wx:else class="home-productList">
     <view class="home-productList-list" wx:for="{{homeProductList}}" wx:key="{{index}}" data-item="{{item}}" catchtap='detailsBtnFun'>
       {{item.productName}}
       <view class="fr">￥{{item.productMoney}}<view class="wb_arrow"></view></view>
     </view>
+  </view>
+  <view class="comment-box">
+    <view class="comment">评论 
+      <!-- <view class="fr">全部评论<view class="wb_arrow"></view></view> -->
+    </view>
+    <view wx:if="{{commentList.length>0}}">
+      <view class="commentList" wx:for="{{commentList}}" wx:for-item="comment" wx:key="index">
+        <view class="userName">
+          <block wx:if="{{comment.isAnony===0}}">匿名用户</block>
+          <block wx:else>{{comment.userName}}</block>
+        </view>
+        <view class="userName">{{comment.productName}}</view>
+        <view class="comment-score">
+          <view class="comment-score-text">评分：</view>
+          <view class="comment-ww">
+            <view wx:for="{{5}}" wx:for-index="ind" wx:key="ind">
+              <image wx:if="{{(ind+1)>comment.starRating}}" src="../../imgs/ww.png"></image>
+              <image wx:else src="../../imgs/wy.png"></image>
+            </view>
+          </view>
+        </view>
+        <view class="textInd">{{comment.comment}}</view>
+      </view>
+    </view>
+    <view class="noData" wx:else>暂无评论</view>
   </view>
 </view>
