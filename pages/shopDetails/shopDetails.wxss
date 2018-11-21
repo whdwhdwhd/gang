@@ -23,6 +23,12 @@
   font-size: 32rpx;
   font-weight: bold;
 }
+.shopInfo-text-left-icon{
+  padding-right: 10rpx;
+  width: 24rpx;
+  height:24rpx;
+  display: inline-block;
+}
 .shopInfo-text-right{
   width: 100rpx;
   padding-left: 10rpx;

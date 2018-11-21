@@ -5,7 +5,7 @@
     <view class="shopInfo-text">
       <view class="shopInfo-text-left">
         <view class="shopInfo-text-left-shopName">{{shopInfo.shopName}}</view>
-        <view><text></text>{{shopInfo.shopProvince}}{{shopInfo.shopCity}}{{shopInfo.shopCounty}}{{shopInfo.shopAddress}}</view>
+        <view><image class="shopInfo-text-left-icon" src="/imgs/position.png"></image>{{shopInfo.shopProvince}}{{shopInfo.shopCity}}{{shopInfo.shopCounty}}{{shopInfo.shopAddress}}</view>
         <view><text>工作时间；</text>{{shopInfo.shopTimeEnd}}-{{shopInfo.shopTimeStart}}</view>
       </view>
       <view class="shopInfo-text-right" catchtap='jumpMap'>

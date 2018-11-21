@@ -2,12 +2,13 @@
 .aboutUs{
   padding: 20rpx 40rpx 0 40rpx;
 }
-.aboutUs>view{
+
+.aboutUs-usName{
   text-align: center;
-  line-height: 60rpx;
 }
-.aboutUs-usDesc{
-  text-indent: 2em;
+.aboutUs>view{
+  
+  line-height: 60rpx;
 }
 .aboutUs-usImagtPath image{
   width:100%;

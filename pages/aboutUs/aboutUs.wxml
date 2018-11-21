@@ -9,5 +9,5 @@
   <view class="aboutUs-usWx"><text>微信号：</text>{{aboutUs.usWx}}</view>
   <view class="aboutUs-usMail"><text>邮箱：</text>{{aboutUs.usMail}}</view>
   <view class="aboutUs-usAddress"><text>地址：</text>{{aboutUs.usAddress}}</view>
-  <view class="aboutUs-usDesc">{{aboutUs.usDesc}}</view>
+  <view class="aboutUs-usDesc"><text>简介：</text>{{aboutUs.usDesc}}</view>
 </view>
