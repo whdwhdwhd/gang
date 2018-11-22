@@ -49,8 +49,8 @@ const getThumbnail=function(url){
   url2 = url.substr(index+1);
   return url1 + "A_" + url2;
 }
-//接口综合  http://47.104.201.33:8080/  阿里  http://192.168.3.150:8080/  本地
-const portUrl = "http://47.104.201.33:8080/";  
+//接口综合  http://47.104.201.33:8080/  阿里  http://192.168.3.148:8080/  本地
+const portUrl = "http://192.168.3.148:8080/";  
 const urls={
   //获取openId
   urls_getOpenId(){return portUrl + "login/findOpenId";},

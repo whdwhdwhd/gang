@@ -16,4 +16,7 @@
     <navigator url="/pages/myEvaluate/myEvaluate">我的评价<view class="wb_arrow"></view></navigator>
     <navigator url="/pages/aboutUs/aboutUs">关于我们<view class="wb_arrow"></view></navigator>
   </view>
+  <form report-submit="true" bindsubmit="appointmentBtnFun">
+    <button formType="submit" type="warn">预约</button>
+  </form>
 </view>

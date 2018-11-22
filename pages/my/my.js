@@ -10,7 +10,17 @@ Page({
     imgSrc:"",
     userName:""
   },
-
+  appointmentBtnFun: function (e) {
+    var _this = this, formId = e.detail.formId;
+    util.http(util.urls.urls_saveUpdReservation(), {
+      formId: formId,
+    }, "POST", (res) => {
+      wx.showToast({
+        title: "预约成功"
+      })
+    })
+    console.log(formId)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
