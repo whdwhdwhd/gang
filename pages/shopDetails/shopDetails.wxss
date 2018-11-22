@@ -19,20 +19,32 @@
   margin: 10rpx 0;
   border-right: 2rpx dashed #dedede;
 }
+.shopInfo-text-left-cont{
+  color:#999999;
+}
 .shopInfo-text-left-shopName{
   font-size: 32rpx;
   font-weight: bold;
 }
 .shopInfo-text-left-icon{
   padding-right: 10rpx;
-  width: 24rpx;
-  height:24rpx;
+  width: 22rpx;
+  height:22rpx;
   display: inline-block;
 }
 .shopInfo-text-right{
-  width: 100rpx;
+  display :flex; 
+  display:-webkit-flex; 
+  align-items:center; 
+  -webkit-align-items:center; 
+  justify-content:center ; 
+  width: 120rpx;
   padding-left: 10rpx;
   margin: 10rpx 0;
+}
+.shopInfo-text-right image{
+  width:60rpx;
+  height:60rpx;
 }
 .homeProductList-tit{
   padding: 0 20rpx;
@@ -78,6 +90,7 @@
 .comment{
   position: relative;
   line-height:50rpx;
+  font-size: 32rpx;  
 }
 .comment>view{
   padding-right:26rpx;
@@ -88,7 +101,19 @@
   width:6px;
 }
 .commentList{
+  display: flex;
   margin-top: 20rpx;
+}
+.commentList-left{
+  width: 80rpx;
+}
+.commentList-left>image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.commentList-right{
+  padding-left: 20rpx;
+  flex: 1;
 }
 .userName{
   line-height: 42rpx;

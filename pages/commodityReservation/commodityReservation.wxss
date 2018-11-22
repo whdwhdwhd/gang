@@ -26,7 +26,7 @@
   width:100%;
 }
 .commodityReservation-dateNodeDtoList-tabs-navs .activeNav{
-  color: #E64340;
+  color: #FF7452;
 }
 .commodityReservation-dateNodeDtoList-tabs-nav{
   flex:1;
@@ -48,7 +48,9 @@
   border: 2rpx solid #fff;
 }
 .commodityReservation-dateNodeDtoList-tabs-conts .activeTime{
-  border-color: #ccc;
+  border-color: #FF7452;
+  background: #FF7452;
+  color: #fff;
   box-sizing: border-box;
 }
 .commodityReservation-footer{

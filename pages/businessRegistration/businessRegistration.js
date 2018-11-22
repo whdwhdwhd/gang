@@ -103,6 +103,7 @@ Page({
       // sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有  
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
       success: function (res) {
+        debugger
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
         var tempFilePaths = res.tempFilePaths[0];
         //启动上传等待中...  
@@ -117,14 +118,16 @@ Page({
           filePath: tempFilePaths,
           name: 'file',
           formData: {
+            isYs:1 
             // 'imgIndex': i
           },
           header: {
             "Content-Type": "multipart/form-data"
           },
           success: function (res) {
+            debugger
             var data=JSON.parse(res.data);
-            if (data.code=="200"){
+            if (data.code=="0"){
               _this.setData({
                 aShopImagePath: util.getThumbnail(util.portUrl + data.data.fileDir),
                 shopImagePath: util.portUrl+data.data.fileDir,
@@ -139,15 +142,6 @@ Page({
               })
             }
             wx.hideToast();
-          },
-          fail: function (res) {
-            wx.hideToast();
-            wx.showModal({
-              title: '错误提示',
-              content: '上传图片失败',
-              showCancel: false,
-              success: function (res) { }
-            })
           }
         });
       }

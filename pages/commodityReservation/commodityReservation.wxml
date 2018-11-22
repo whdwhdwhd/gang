@@ -22,5 +22,7 @@
   </view>
 </view>
 <view class="commodityReservation-footer">
-  <button type="warn" catchtap='appointmentBtnFun'>预约</button>
+  <form report-submit="true" bindsubmit="appointmentBtnFun">
+    <button formType="submit" type="warn">预约</button>
+  </form>
 </view>

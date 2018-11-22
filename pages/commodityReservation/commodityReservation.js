@@ -33,8 +33,8 @@ Page({
     console.log(this.data.activetime)
   },
   //预约
-  appointmentBtnFun: function () {
-    var _this = this;
+  appointmentBtnFun: function (e) {
+    var _this = this, formId = e.detail.formId;
     util.http(util.urls.urls_saveUpdReservation(), { 
       productId: this.data.id,
       shopId: this.data.shopId,
