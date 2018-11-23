@@ -30,7 +30,7 @@ const http = function (url, data, method, successFun, failFun){
     },
     success(res) {
       if(res.data.code===0){
-        successFun && successFun(res.data.data)
+        successFun && successFun(res.data.data, res.data.count)
       }else{
         failFun && failFun(res.data)
       }
