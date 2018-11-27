@@ -9,6 +9,7 @@ Page({
   data: {
     id:"",
     shopId:"",
+    formId:"",
     product:{},
     shopInfo:{},
     dateNodeDtoList:[],
@@ -37,7 +38,7 @@ Page({
   appointmentBtnFun: function (e) {
     var _this = this, formId = e.detail.formId;
     util.http(util.urls.urls_saveUpdReservation(), { 
-      formId: formId,
+      formId: formId + "," + this.data.formId,
       productId: this.data.id,
       shopId: this.data.shopId,
       serviceDateStr: this.data.dateNodeDtoList[this.data.activetime.week].dateDay,
@@ -70,7 +71,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       id: options.id,
-      shopId: options.shopId
+      shopId: options.shopId,
+      formId: options.formId
     })
     this.getShopInfo();
   },

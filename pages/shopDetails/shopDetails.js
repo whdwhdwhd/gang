@@ -33,8 +33,9 @@ Page({
   //跳转到详情
   detailsBtnFun: function (e) {
     var item = e.currentTarget.dataset.item;
+    item.formId=e.detail.formId;
     wx.navigateTo({
-      url: "/pages/commodityReservation/commodityReservation?id=" + item.id + "&shopId=" + item.shopId
+      url: "/pages/commodityReservation/commodityReservation?id=" + item.id + "&shopId=" + item.shopId + "&formId=" + item.formId
     })
   },
   //查询商品
