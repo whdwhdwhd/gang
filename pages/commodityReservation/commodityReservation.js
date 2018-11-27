@@ -36,6 +36,7 @@ Page({
   appointmentBtnFun: function (e) {
     var _this = this, formId = e.detail.formId;
     util.http(util.urls.urls_saveUpdReservation(), { 
+      formId: formId,
       productId: this.data.id,
       shopId: this.data.shopId,
       serviceDateStr: this.data.dateNodeDtoList[this.data.activetime.week].dateDay,

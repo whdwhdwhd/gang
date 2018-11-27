@@ -5,7 +5,7 @@
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
       <block wx:for="{{homeAd}}">
         <swiper-item>
-          <image src="{{item}}" class="slide-image" width="355" height="150"/>
+          <image src="{{item}}" class="slide-image"/>
         </swiper-item>
       </block>
     </swiper>

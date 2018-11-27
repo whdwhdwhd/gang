@@ -24,11 +24,6 @@ Page({
   //查询商铺评论和商铺信息
   getShopComment: function (id) {
     var _this = this;
-    util.http(util.urls.urls_findShopInfoById(), { id: id }, "POST", (res) => {
-      _this.setData({
-        shopInfo: res
-      })
-    })
     util.http(util.urls.urls_findAppraiseByShopId(), { shopId: id }, "POST", (res) => {
       _this.setData({
         commentList: res
@@ -45,9 +40,10 @@ Page({
   //查询商品
   getProductList: function (id) {
     var _this = this;
-    util.http(util.urls.urls_productList(), { shopId: id }, "POST", (res) => {
+    util.http(util.urls.urls_findShopInfoAllById(), { id: id }, "POST", (res) => {
       _this.setData({
-        homeProductList: res
+        homeProductList: res.productList,
+        shopInfo: res.shopInfo
       })
     })
   },
@@ -55,12 +51,13 @@ Page({
     var _this = this;
     if (app.globalData.userInfo.unionId) {
       _this.getProductList(options.id)
+      _this.getShopComment(options.id)
     } else {
       app.getUnionId(function () {
         _this.getProductList(options.id)
+        _this.getShopComment(options.id)
       })
     }
-    this.getShopComment(options.id)
   },
 
   /**

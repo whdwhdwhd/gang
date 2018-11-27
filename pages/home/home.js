@@ -8,6 +8,8 @@ Page({
    */
   data: {
     //列表
+    page:1,
+    pageNum:0,
     homeProductList: [],
     homeAdTit: '',
     homeAd: [],
@@ -42,11 +44,12 @@ Page({
     })
   },
   //查询商品
-  getProductList: function () {
+  getProductList: function (page) {
     var _this = this;
-    util.http(util.urls.urls_findPageShopInfo(), { userLng: app.globalData.userLocation.latitude, userLat: app.globalData.userLocation.longitude }, "POST", (res) => {
+    util.http(util.urls.urls_findPageShopInfo(), { userLng: app.globalData.userLocation.latitude, userLat: app.globalData.userLocation.longitude, page: page }, "POST", (res, count) => {
       _this.setData({
-        homeProductList: res
+        homeProductList: [..._this.data.homeProductList,...res],
+        pageNum: count/10
       })
     })
   },
@@ -56,11 +59,11 @@ Page({
   onLoad: function (options) {
     var _this = this;
     if (app.globalData.userInfo.unionId) {
-      _this.getProductList()
+      _this.getProductList(_this.data.page)
       _this.getHomeAd()
     } else {
       app.getUnionId(function () {
-        _this.getProductList()
+        _this.getProductList(_this.data.page)
         _this.getHomeAd()
       })
     }
@@ -118,7 +121,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log(111)
+    var _this=this;
+    if (this.data.pageNum > this.data.page){
+      this.data.page++
+      this.getProductList(this.data.page)
+    }
   },
 
   /**

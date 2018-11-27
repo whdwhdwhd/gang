@@ -3,7 +3,10 @@
 
 }
 .home-Advertisement{
-  height: 300rpx;
+  /* height: 300rpx; */
+}
+.home-Advertisement swiper {
+  height: 360rpx;
 }
 .home-Advertisement>swiper image{
   width: 100%;

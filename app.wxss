@@ -39,7 +39,7 @@ view,text,input{
 .productList-list>.image-shadow{
   padding: 20rpx;
   width: 100%;
-  height:300rpx;
+  height:320rpx;
   box-sizing: border-box;
 }
 .productList-list>.image-shadow>image{

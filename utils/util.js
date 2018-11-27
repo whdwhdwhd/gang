@@ -50,8 +50,8 @@ const getThumbnail=function(url){
   url2 = url.substr(index+1);
   return url1 + "A_" + url2;
 }
-//接口综合  http://47.104.201.33:8080/  阿里  http://192.168.3.148:8080/  本地
-const portUrl = "http://192.168.3.148:8080/";  
+//接口综合  http://47.104.201.33:8080/  阿里  http://192.168.3.148:8080/  本地  https://yuexiang360.cn/   线上
+const portUrl = "https://yuexiang360.cn/";  
 const urls={
   //获取openId
   urls_getOpenId(){return portUrl + "login/findOpenId";},
@@ -63,6 +63,8 @@ const urls={
   urls_upload() { return portUrl + "file/upload"; },
   //查询商品列表
   urls_productList() { return portUrl + "product/findProductList" },
+  //门店服务页面--->点击门店查看所有信息
+  urls_findShopInfoAllById() { return portUrl + "shopInfo/findShopInfoAllById"; },
   //新增/修改商品信息
   urls_product_saveUpdProduct() { return portUrl + "product/saveUpdProduct" },
   //查询商品信息
