@@ -7,13 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
+    page: 1,
+    pageNum: 0,
     commentList:[]
   },
-  getMyEvaluate:function(){
+  getMyEvaluate:function(page){
     var _this=this;
-    util.http(util.urls.urls_findAppraiseByUserId(), {}, "POST", (res) => {
+    util.http(util.urls.urls_findAppraiseByUserId(), { page: page }, "POST", (res, count) => {
       _this.setData({
-        commentList: res
+        commentList: [..._this.data.commentList,...res],
+        pageNum: count / 10
       })
     })
   },
@@ -36,7 +39,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getMyEvaluate()
+    this.getMyEvaluate(this.data.page)
   },
 
   /**
@@ -78,7 +81,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var _this = this;
+    if (this.data.pageNum > this.data.page) {
+      this.data.page++
+      this.getMyEvaluate(this.data.page)
+    }
   },
 
   /**

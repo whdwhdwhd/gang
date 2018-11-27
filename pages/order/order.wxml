@@ -7,10 +7,10 @@
           </view>
       </block>
   </view>
-  <view style="position: absolute;top: 68rpx;width: 100%;height:{{contentHeight}}px">
+  <view class="order-list" style="height:{{contentHeight}}px">
     <swiper current="{{activeIndex}}" duration="300" bindchange="bindChange">
       <swiper-item>
-        <view>
+        <scroll-view class="scroll-item" bindscrolltolower="bindscrolltolower" scroll-top="0" scroll-y="true">
           <view class="orderList" wx:for="{{orderList[0]}}" wx:key="index">
             <view class="orderList-shopName">{{item.shopName}}
                 <block wx:if="{{item.serviceStatus=='14'}}">
@@ -32,10 +32,10 @@
                 </view>
               </view>
           </view>
-        </view>
+        </scroll-view>
       </swiper-item>
       <swiper-item>
-        <view>
+        <scroll-view class="scroll-item" bindscrolltolower="bindscrolltolower" scroll-y="true">
           <view class="orderList" wx:for="{{orderList[1]}}" wx:key="index">
             <view class="orderDf">
               <view class="orderList-shopName">{{item.shopName}}
@@ -52,10 +52,10 @@
               </view>
             </view>
           </view>
-        </view>
+        </scroll-view>
       </swiper-item>
       <swiper-item>
-        <view>
+        <scroll-view class="scroll-item" bindscrolltolower="bindscrolltolower" scroll-y="true">
           <view class="orderList" wx:for="{{orderList[2]}}" wx:key="index">
             <view class="orderDp">
               <view class="orderList-shopName">{{item.shopName}}
@@ -72,7 +72,7 @@
               </view>
             </view>
           </view>
-        </view>
+        </scroll-view>
       </swiper-item>
     </swiper> 
   </view>

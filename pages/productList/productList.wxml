@@ -1,13 +1,13 @@
 <!--pages/productList/productList.wxml-->
-<view class="productList">
+<view class="productListPage">
   <view wx:if="{{productList.length===0}}">暂无商品</view>
   <block wx:else>
-    <view class="productList-list" wx:for="{{productList}}" data-item="{{item}}" catchtap='saveBtnFun'>
+    <view class="productListPage-list" wx:for="{{productList}}" data-item="{{item}}" catchtap='saveBtnFun'>
       {{item.productName}}
-      <view class="productList-del" data-id="{{item.id}}" catchtap='delBtnFun'>删除</view>
+      <view class="productListPage-del" data-id="{{item.id}}" catchtap='delBtnFun'>删除</view>
     </view>
   </block>
-  <view class="productList-addBtn">
+  <view class="productListPage-addBtn">
     <button type="warn" catchtap='addBtnFun'>新增商品</button>
   </view>
 </view>

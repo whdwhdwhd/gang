@@ -23,8 +23,8 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color":"#6D6E73",
-    "selectedColor":"#FE704E",
+    "color":"#212121",
+    "selectedColor":"#303F9F",
     "list": [
       {
         "pagePath": "pages/home/home",

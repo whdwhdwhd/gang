@@ -7,15 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
+    page: 1,
+    pageNum: 0,
     shopOrderList:[]
   },
   //门店查找预约
   getShopOrder:function(){
     var _this = this;
-    util.http(util.urls.urls_findPageByShopId(), { shopId: app.globalData.userInfo.shopId }, "POST", (res) => {
-      console.log(res)
+    util.http(util.urls.urls_findPageByShopId(), { shopId: app.globalData.userInfo.shopId }, "POST", (res, count) => {
       _this.setData({
-        shopOrderList: res
+        shopOrderList: [..._this.data.shopOrderList,...res],
+        pageNum: count / 10
       })
     })
   },
@@ -72,7 +74,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var _this = this;
+    if (this.data.pageNum > this.data.page) {
+      this.data.page++
+      this.getShopOrder(this.data.page)
+    }
   },
 
   /**

@@ -1,9 +1,14 @@
 /* pages/myEvaluate/myEvaluate.wxss */
-.comment{
-  
+.myEvaluate{
+  background: #fff;
+  padding:20rpx 40rpx;
 }
 .commentList{
-  margin-top: 20rpx;
+  line-height: 48rpx;
+  margin-bottom: 40rpx;
+  padding: 20rpx;
+  border-radius:28rpx;
+  box-shadow:0px 0px 3px #BDBDBD;
 }
 .userName{
   line-height: 42rpx;

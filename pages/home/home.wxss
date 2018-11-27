@@ -15,6 +15,7 @@
 .title{
   text-align: center;
   padding: 20rpx 0;
+  background: #fff;
 }
 .title text{
   font-size: 34rpx;

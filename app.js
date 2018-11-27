@@ -20,7 +20,6 @@ App({
         util.http(util.urls.urls_getOpenId(), { jsCode: res.code }, "POST", (res) => {
           _this.globalData.userInfo.unionId = res.unionId;
           wx.setStorageSync('unionId', res.unionId);
-          wx.setStorageSync('sessionId', res.sessionId);
           if (res.shopInfo){
             _this.globalData.userInfo.shopInfo = res.shopInfo;
             _this.globalData.userInfo.shopId = res.shopInfo.id;

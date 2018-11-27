@@ -19,7 +19,6 @@ const http = function (url, data, method, successFun, failFun){
   })
   if (url.indexOf("login/findOpenId")==-1){
     data.unionId = wx.getStorageSync('unionId');
-    data.sessionId = wx.getStorageSync('sessionId');
   }
   wx.request({
     url: url, //仅为示例，并非真实的接口地址
@@ -32,6 +31,12 @@ const http = function (url, data, method, successFun, failFun){
       if(res.data.code===0){
         successFun && successFun(res.data.data, res.data.count)
       }else{
+        wx.showModal({
+          title: '提示',
+          showCancel:false,
+          confirmColor: "#512DA8",
+          content: res.data.msg
+        })
         failFun && failFun(res.data)
       }
       wx.hideLoading()
@@ -50,8 +55,28 @@ const getThumbnail=function(url){
   url2 = url.substr(index+1);
   return url1 + "A_" + url2;
 }
+//处理图片路径
+const setArrImgSrc = function (data, str, isCompress){
+  for (var i = 0; i < data.length;i++){
+    if (isCompress) {
+      data[i][str] = getThumbnail(portUrl + data[i][str]);
+    }else{
+      data[i][str] = portUrl + data[i][str];
+    }
+  }
+  return data
+}
+//处理图片路径
+const setObjImgSrc = function (data, str, isCompress) {
+  if (isCompress){
+    data[str] = getThumbnail(portUrl + data[str]);
+  }else{
+    data[str] = portUrl + data[str];
+  }
+  return data
+}
 //接口综合  http://47.104.201.33:8080/  阿里  http://192.168.3.148:8080/  本地  https://yuexiang360.cn/   线上
-const portUrl = "https://yuexiang360.cn/";  
+const portUrl = "http://192.168.3.148:8080/";  
 const urls={
   //获取openId
   urls_getOpenId(){return portUrl + "login/findOpenId";},
@@ -113,5 +138,7 @@ module.exports = {
   getThumbnail: getThumbnail,
   http:http,
   portUrl: portUrl,
+  setArrImgSrc: setArrImgSrc,
+  setObjImgSrc: setObjImgSrc,
   urls: urls
 }

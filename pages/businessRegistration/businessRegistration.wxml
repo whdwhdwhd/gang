@@ -3,10 +3,10 @@
   <form bindsubmit="formSubmit">
     <view class="section shop_img section_gap">
       <view class="section_title">店铺图：</view>
-      <view class="section_content">
+      <view class="section_content" catchtap="shopImgUpload">
         <view class="shop_img_box">
           <image wx:if="{{aShopImagePath}}" src="{{aShopImagePath}}"></image>
-          <view wx:else catchtap="shopImgUpload">上传</view>
+          <view wx:else>上传</view>
         </view>
       </view>
     </view>

@@ -18,7 +18,7 @@ Page({
     this.setData({
       imgSrc: app.globalData.userInfo.avatarUrl,
       userName: app.globalData.userInfo.nickName,
-      shopStatus: app.globalData.userInfo.shopInfo.shopStatus
+      shopStatus: app.globalData.userInfo.shopInfo.shopStatus || ""
     })
   },
 

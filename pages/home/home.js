@@ -47,6 +47,7 @@ Page({
   getProductList: function (page) {
     var _this = this;
     util.http(util.urls.urls_findPageShopInfo(), { userLng: app.globalData.userLocation.latitude, userLat: app.globalData.userLocation.longitude, page: page }, "POST", (res, count) => {
+      util.setArrImgSrc(res,"shopImagePath")
       _this.setData({
         homeProductList: [..._this.data.homeProductList,...res],
         pageNum: count/10

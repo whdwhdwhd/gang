@@ -1,7 +1,7 @@
 <!--pages/commodityReservation/commodityReservation.wxml-->
 <view class="commodityReservation">
   <view class="commodityReservation-product">
-    <view class="commodityReservation-product-img"><image :src="{{shopInfo.shopImagePath}}"></image></view>
+    <view class="commodityReservation-product-img"><image src="{{shopInfo.shopImagePath}}"></image></view>
     <view class="commodityReservation-product-cont">
       <view>{{product.productName}} <text class="commodityReservation-product-cont-money">￥{{product.productMoney}}</text></view>
       <view>{{shopInfo.shopName}}</view>
@@ -15,7 +15,12 @@
       </view>
       <view class="commodityReservation-dateNodeDtoList-tabs-conts">
         <view class="commodityReservation-dateNodeDtoList-tabs-cont" wx:if="{{tabsInd===index}}" wx:for="{{dateNodeDtoList}}" wx:key="index">
-          <view class="{{(activetime.week===index && activetime.time===ind)?'activeTime':''}}" wx:for="{{item.dateInterMap}}" data-ind="{{ind}}" catchtap='setActiveTimeFun' wx:for-index="ind" wx:for-item="itemMap" wx:key="ind">{{itemMap}}</view>
+          <block wx:if="{{item.dateInterMap.length>0}}">
+            <view class="{{(activetime.week===index && activetime.time===ind)?'activeTime':''}}" wx:for="{{item.dateInterMap}}" data-ind="{{ind}}" catchtap='setActiveTimeFun' wx:for-index="ind" wx:for-item="itemMap" wx:key="ind">{{itemMap}}</view>
+          </block> 
+          <block wx:else>
+            <view>暂无预定时间，请另行选择！</view>
+          </block> 
         </view>
       </view>
     </view>
@@ -23,6 +28,7 @@
 </view>
 <view class="commodityReservation-footer">
   <form report-submit="true" bindsubmit="appointmentBtnFun">
-    <button formType="submit" type="warn">预约</button>
+    <button wx:if="{{isBtn}}" formType="submit" type="warn">预约</button>
+    <button wx:else disabled="true">已预约</button>
   </form>
 </view>

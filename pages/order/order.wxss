@@ -7,7 +7,12 @@
     width: 100%;
     
 }
-
+.order-list{
+  position: absolute;
+  top: 68rpx;
+  width: 100%;
+  background: #fff;
+}
 .navbar__item {
     position: relative;
     display: block;
@@ -20,8 +25,8 @@
 }
 
 .navbar__on view{
-  border-radius:14px;
-  box-shadow:0px 0px 9px #ccc;
+  border-radius:28rpx;
+  box-shadow:0px 0px 3px #BDBDBD;
 }
 .navbar__slider {
     position: absolute;
@@ -49,8 +54,12 @@ swiper {
 
 swiper-item{
   width: 100%;
-  padding: 0 40rpx;
   box-sizing: border-box;
+}
+swiper-item .scroll-item{
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 40rpx;
 }
 .orderList{
   padding: 10rpx 20rpx 10rpx 20rpx;

@@ -3,7 +3,7 @@
   <view class="home-Advertisement">
     <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
-      <block wx:for="{{homeAd}}">
+      <block wx:for="{{homeAd}}" wx:key="index">
         <swiper-item>
           <image src="{{item}}" class="slide-image"/>
         </swiper-item>

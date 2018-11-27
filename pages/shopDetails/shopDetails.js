@@ -43,7 +43,7 @@ Page({
     util.http(util.urls.urls_findShopInfoAllById(), { id: id }, "POST", (res) => {
       _this.setData({
         homeProductList: res.productList,
-        shopInfo: res.shopInfo
+        shopInfo: util.setObjImgSrc(res.shopInfo,"shopImagePath")
       })
     })
   },

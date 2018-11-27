@@ -13,7 +13,8 @@ Page({
     shopInfo:{},
     dateNodeDtoList:[],
     tabsInd:0,
-    activetime:{week:0,time:0}
+    activetime:{week:0,time:0},
+    isBtn:true
   },
   //设置显示下表
   setTabsIndFun:function(e){
@@ -43,6 +44,9 @@ Page({
       serviceWeek: this.data.dateNodeDtoList[this.data.activetime.week].weekDay,
       servicePeriod: this.data.dateNodeDtoList[this.data.activetime.week].dateInterMap[this.data.activetime.time]
       }, "POST", (res) => {
+        _this.setData({
+          isBtn: false
+        })
         wx.showToast({
           title: "预约成功"
         })
@@ -55,7 +59,7 @@ Page({
       console.log(res)
       _this.setData({
         product: res.product,
-        shopInfo: res.shopInfo,
+        shopInfo: util.setObjImgSrc(res.shopInfo, "shopImagePath"),
         dateNodeDtoList: res.dateNodeDtoList
       })
     })

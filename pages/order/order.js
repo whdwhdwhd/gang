@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    page: 1,
+    pageNum: 0,
     tabs: [
       {
         name: "全部"
@@ -26,26 +28,30 @@ Page({
       "0": [],
       "1": [],
       "2":[]
-    }
+    },
+    scrollT:0
   },
   //获取用户订单
   getOrderLIst:function(){
     var _this = this;
-    util.http(util.urls.urls_findPageByFwStatus(), { serviceStatus: this.data.activeIndex}, "POST", (res) => {
+    util.http(util.urls.urls_findPageByFwStatus(), { serviceStatus: this.data.activeIndex }, "POST", (res, count) => {
       switch (_this.data.activeIndex){
         case 0:
           _this.setData({
-            'orderList.0': res
+            'orderList.0': [..._this.data.orderList[0],...res],
+            pageNum: count / 10
           })
         break;
         case 1:
           _this.setData({
-            'orderList.1': res
+            'orderList.1': [..._this.data.orderList[1], ...res],
+            pageNum: count / 10
           })
           break;
         case 2:
           _this.setData({
-            'orderList.2': res
+            'orderList.2': [..._this.data.orderList[2], ...res],
+            pageNum: count / 10
           })
           break;
       }
@@ -56,6 +62,7 @@ Page({
     var _this = this, data = e.currentTarget.dataset.item;
     wx.showModal({
       title: '取消预约',
+      confirmColor:"#512DA8",
       content: '确认取消预约？',
       success(res) {
         if (res.confirm) {
@@ -72,6 +79,14 @@ Page({
     wx.navigateTo({
       url: "/pages/comment/comment?shopId=" + data.shopId + "&productId=" + data.productId + "&orderId=" + data.id
     })
+  },
+  //滚动
+  bindscrolltolower:function(e){
+    var _this = this;
+    if (this.data.pageNum > this.data.page) {
+      this.data.page++
+      this.getOrderLIst(this.data.page)
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -130,7 +145,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    
   },
 
   /**
@@ -145,6 +160,8 @@ Page({
       activeIndex: current,
       sliderOffset: this.data.sliderWidth * current
     });
+    this.data.page=1;
+    this.data.orderList[this.data.activeIndex]=[];
     this.getOrderLIst();
   },
   navTabClick: function (e) {

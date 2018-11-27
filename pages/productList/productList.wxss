@@ -1,18 +1,19 @@
 /* pages/productList/productList.wxss */
-.productList{
+.productListPage{
   border-top:1px solid #dedede;
+  background: #fff;
 }
-.productList-list{
+.productListPage-list{
   line-height: 80rpx;
   padding-left: 20rpx;
   border-bottom:1px solid #dedede;
 }
-.productList-del{
+.productListPage-del{
   float:right;
   padding-right:20rpx;
   color:#CE3C39;
 }
-.productList-addBtn{
+.productListPage-addBtn{
   position: fixed;
   bottom: 0;
   left:0;

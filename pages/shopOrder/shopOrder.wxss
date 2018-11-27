@@ -1,4 +1,8 @@
 /* pages/shopOrder/shopOrder.wxss */
+.shopOrder{
+  background: #fff;
+  padding: 40rpx 0;
+}
 .shopOrderList{
   padding: 0 40rpx;
 }
@@ -6,4 +10,7 @@
   line-height: 48rpx;
   color:#7a7a7a;
   margin-bottom: 40rpx;
+  padding: 20rpx;
+  border-radius:28rpx;
+  box-shadow:0px 0px 3px #BDBDBD;
 }
