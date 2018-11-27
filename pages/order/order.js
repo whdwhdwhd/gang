@@ -155,13 +155,16 @@ Page({
   
   },
   bindChange: function (e) {
-    var current = e.detail.current;
+    var _this=this,current = e.detail.current;
     this.setData({
       activeIndex: current,
       sliderOffset: this.data.sliderWidth * current
     });
     this.data.page=1;
     this.data.orderList[this.data.activeIndex]=[];
+    this.setData({
+      orderList: _this.data.orderList
+    })
     this.getOrderLIst();
   },
   navTabClick: function (e) {
