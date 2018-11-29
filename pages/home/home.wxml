@@ -20,3 +20,9 @@
     </view>
   </view>
 </view>
+<view class="formIdDom" wx:if="{{checkFormIdsStr}}">
+  <view class="formIdDom-open">
+    <text>{{checkFormIdsStr}}</text>
+    <view class="formIdDom-open-btn"><component-form-id bindmyEvent="onMyEvent">确认</component-form-id></view>
+  </view>
+</view>

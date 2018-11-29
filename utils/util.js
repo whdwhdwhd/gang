@@ -20,32 +20,52 @@ const http = function (url, data, method, successFun, failFun){
   if (url.indexOf("login/findOpenId")==-1){
     data.unionId = wx.getStorageSync('unionId');
   }
-  wx.request({
-    url: url, //仅为示例，并非真实的接口地址
-    data: data,
-    method: method,
-    header: {
-      'content-type': 'application/x-www-form-urlencoded' // 默认值
-    },
-    success(res) {
-      if(res.data.code===0){
-        successFun && successFun(res.data.data, res.data.count)
-      }else{
-        wx.showModal({
-          title: '提示',
-          showCancel:false,
-          confirmColor: "#512DA8",
-          content: res.data.msg
-        })
-        failFun && failFun(res.data)
+  if (url.indexOf("sysUser/checkFormIds") != -1){
+    wx.request({
+      url: url, //仅为示例，并非真实的接口地址
+      data: data,
+      method: method,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success(res) {
+        successFun && successFun(res.data)
+        wx.hideLoading()
+      },
+      fail(err) {
+        wx.hideLoading()
+        failFun && failFun(err)
       }
-      wx.hideLoading()
-    },
-    fail(err){
-      wx.hideLoading()
-      failFun && failFun(err)
-    }
-  })
+    })
+  }else{
+    wx.request({
+      url: url, //仅为示例，并非真实的接口地址
+      data: data,
+      method: method,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success(res) {
+        if (res.data.code === 0) {
+          successFun && successFun(res.data.data, res.data.count)
+        } else {
+          wx.showModal({
+            title: '提示',
+            showCancel: false,
+            confirmColor: "#512DA8",
+            content: res.data.msg
+          })
+          failFun && failFun(res.data)
+        }
+        wx.hideLoading()
+      },
+      fail(err) {
+        wx.hideLoading()
+        failFun && failFun(err)
+      }
+    })
+  }
+  
 }
 //获取缩列图
 const getThumbnail=function(url){
@@ -75,8 +95,8 @@ const setObjImgSrc = function (data, str, isCompress) {
   }
   return data
 }
-//接口综合  http://47.104.201.33:8080/  阿里  http://192.168.3.148:8080/  本地  https://yuexiang360.cn/   线上
-const portUrl = "http://192.168.3.148:8080/";  
+//接口综合  http://47.104.201.33:8080/  阿里  http://192.168.3.116:8080  本地  https://yuexiang360.cn/   线上
+const portUrl = "http://47.104.201.33:8080/";  
 const urls={
   //获取openId
   urls_getOpenId(){return portUrl + "login/findOpenId";},
@@ -132,6 +152,10 @@ const urls={
   urls_usInfo() { return portUrl + "aboutUs/usInfo" },
   //全部、待服务、待评价
   urls_findPageByFwStatus() { return portUrl + "reservation/findPageByFwStatus" },
+  //保存店家的formId
+  urls_updateFormIds() { return portUrl + "sysUser/updateFormIds" },
+  //查看formIds是否超时
+  urls_checkFormIds() { return portUrl + "sysUser/checkFormIds" },
 }
 module.exports = {
   formatTime: formatTime,

@@ -14,6 +14,8 @@
       <block wx:if="{{shopStatus===5}}">商家信息修改</block>
       <block wx:else>商家入驻</block>
     <view class="wb_arrow"></view></navigator>
+      <!-- <component-form-id bindmyEvent="onMyEvent">商家订单<view class="wb_arrow"></view></component-form-id> -->
+    
     <navigator wx:if="{{shopStatus===5}}" url="/pages/shopOrder/shopOrder">商家订单<view class="wb_arrow"></view></navigator>
     <navigator wx:if="{{shopStatus===5}}" url="/pages/productList/productList">商品列表<view class="wb_arrow"></view></navigator>
     <navigator url="/pages/myEvaluate/myEvaluate">我的评价<view class="wb_arrow"></view></navigator>

@@ -69,6 +69,11 @@ swiper-item .scroll-item{
   border-radius:8rpx;
   background: #fff;
 }
+.orderList-shopNameT{
+  font-weight: bolder;
+  font-size:32rpx;
+  color: #512DA8;
+}
 .orderList-shopName{
   font-size:32rpx;
 }

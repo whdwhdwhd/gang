@@ -9,7 +9,7 @@
       </view>
     </view>
   </view>
-  <view><text>建议：</text><textarea value="{{comment}}" bindinput="bindinput" auto-height placeholder="请给商家提出宝贵的建议" /></view>
+  <view><text>建议：</text><textarea value="{{comment}}" bindinput="bindinput" placeholder="请给商家提出宝贵的建议" /></view>
   <view>
     <checkbox-group bindchange="checkboxChange">
       <checkbox value="{{isAnonyArr.name}}" class="cs" checked="{{isAnonyArr.checked}}"/>是否匿名   

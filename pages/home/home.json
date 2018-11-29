@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "至简"
+  "navigationBarTitleText": "至简",
+  "usingComponents": {
+    "component-form-id": "/component/formId/formId"
+  }
 }

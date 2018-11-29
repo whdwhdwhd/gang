@@ -80,6 +80,13 @@ Page({
       url: "/pages/comment/comment?shopId=" + data.shopId + "&productId=" + data.productId + "&orderId=" + data.id
     })
   },
+  //跳转商铺
+  jumpShop:function(e){
+    var item = e.currentTarget.dataset.item;
+    wx.navigateTo({
+      url: "/pages/shopDetails/shopDetails?id=" + item.shopId
+    })
+  },
   //滚动
   bindscrolltolower:function(e){
     var _this = this;

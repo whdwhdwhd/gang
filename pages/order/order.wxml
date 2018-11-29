@@ -14,7 +14,7 @@
           <view class="noData" wx:if="{{orderList[0].length===0}}">暂无数据</view>
           <block wx:else>
             <view class="orderList" wx:for="{{orderList[0]}}" wx:key="index">
-              <view class="orderList-shopName">{{item.shopName}}
+              <view class="orderList-shopName"><text class="orderList-shopNameT" data-item="{{item}}" catchtap='jumpShop'>{{item.shopName}}</text>
                 <block wx:if="{{item.serviceStatus=='14'}}">
                   <text class="orderList-status">待服务</text>
                 </block>
@@ -43,7 +43,7 @@
           <block wx:else>
             <view class="orderList" wx:for="{{orderList[1]}}" wx:key="index">
               <view class="orderDf">
-                <view class="orderList-shopName">{{item.shopName}}
+                <view class="orderList-shopName"><text class="orderList-shopNameT" data-item="{{item}}" catchtap='jumpShop'>{{item.shopName}}</text>
                   <block wx:if="{{item.serviceStatus=='14'}}">
                     <text class="orderList-status">待服务</text>
                   </block>
@@ -66,7 +66,7 @@
           <block wx:else>
             <view class="orderList" wx:for="{{orderList[2]}}" wx:key="index">
               <view class="orderDp">
-                <view class="orderList-shopName">{{item.shopName}}
+                <view class="orderList-shopName"><text class="orderList-shopNameT" data-item="{{item}}" catchtap='jumpShop'>{{item.shopName}}</text>
                   <block wx:if="{{item.serviceStatus=='14'}}">
                     <text class="orderList-status">待服务</text>
                   </block>

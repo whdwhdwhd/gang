@@ -1,6 +1,11 @@
 /* pages/comment/comment.wxss */
 .comment{
   padding: 20rpx 40rpx;
+  background: #fff;
+}
+.comment>view{
+  padding-top: 20rpx;
+  line-height:32rpx;
 }
 .comment-score-text{
   display: inline-block;
@@ -18,6 +23,15 @@
   display: inline-block;
   width: 40rpx;
   height: 40rpx;
+}
+.comment textarea{
+  height: 300rpx;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top:20rpx;
+  border:1rpx solid #dedede;
+  border-radius:8rpx;
+  padding:10rpx;
 }
 .cs{
   transform: scale(0.6,0.6);

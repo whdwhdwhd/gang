@@ -1,0 +1,13 @@
+/* component/formId.wxss */
+.formId form button{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80rpx;
+  padding: 0;
+}
+.formId form button::after{
+  content: '';
+  display: none;
+}

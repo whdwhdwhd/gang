@@ -17,7 +17,8 @@ Page({
     autoplay: true,
     circular:true,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    checkFormIdsStr:""
   },
   //首页广告   
   getHomeAd: function () {
@@ -54,16 +55,36 @@ Page({
       })
     })
   },
+  //查看formIds是否超时
+  checkFormIds:function(){
+    util.http(util.urls.urls_checkFormIds(), {}, "POST", (res) => {
+      if (res.code!=0){
+        this.setData({
+          checkFormIdsStr: res.data
+        })
+      }
+    })
+  },
+  onMyEvent: function (e) {
+    var formIds = e.detail.formIdString;
+    util.http(util.urls.urls_updateFormIds(), { formIds: formIds }, "POST", (res) => {
+      this.setData({
+        checkFormIdsStr: ""
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var _this = this;
     if (app.globalData.userInfo.unionId) {
+      _this.checkFormIds()
       _this.getProductList(_this.data.page)
       _this.getHomeAd()
     } else {
       app.getUnionId(function () {
+        _this.checkFormIds()
         _this.getProductList(_this.data.page)
         _this.getHomeAd()
       })
