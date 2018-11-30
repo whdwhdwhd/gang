@@ -7,6 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    shopInfo:{},
+    shopAddress:"",
+    shopLandline:"",
+    shopPhone:"",
+    shopLxr:"",
+    shopName:"",
     shopTypeArr:[],   //店铺
     shopTypeArrIndex:"",
     region:[],   //省市县
@@ -57,9 +63,23 @@ Page({
     saveData.addressAll = saveData.shopProvince + saveData.shopCity + saveData.shopCounty + saveData.shopAddress;
     saveData.shopTimeStart = this.data.startTime;
     saveData.shopTimeEnd = this.data.endTime;
+    if (app.globalData.userInfo.shopInfo) {
+      saveData.id = app.globalData.userInfo.shopInfo.id;
+    }
     console.log(saveData)
     //验证必填项
     if (this.validateSubData(saveData)){
+      //验证手机
+      if (saveData.shopPhone){
+        if (!this.isPoneAvailable(saveData.shopPhone)){
+          return this.wxShowToast("请输入正确的手机号码");
+        }
+      }
+      if (saveData.shopLandline){
+        if (!this.isPoneAvailable2(saveData.shopPhone)) {
+          return this.wxShowToast("请输入正确的座机号码");
+        }
+      }
       util.http(util.urls.urls_saveUpdShopInfo(), saveData, "POST", (res) => {
         app.globalData.userInfo.shopId = res.id;
         wx.showToast({
@@ -69,6 +89,22 @@ Page({
           url: "/pages/my/my"
         })
       })
+    }
+  },
+  isPoneAvailable:function(str) {
+    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if(!myreg.test(str)) {
+      return false;
+    } else {
+      return true;
+    }
+  }, 
+  isPoneAvailable2:function(str) {
+    var myreg = /^([0-9]{3,4}-)?[0-9]{7,8}$/;
+    if (!myreg.test(str)) {
+      return false;
+    } else {
+      return true;
     }
   },
   validateSubData:function(data){
@@ -155,6 +191,30 @@ Page({
     util.http(util.urls.urls_getShopType(), {}, "GET", (res)=>{
       this.setData({
         shopTypeArr: res
+      })
+      if (app.globalData.userInfo.shopInfo){
+        this.getShopInfo()
+      }
+    })
+  },
+  //查询信息
+  getShopInfo:function(){
+    var _this = this;
+    util.http(util.urls.urls_findShopInfoById(), { id: app.globalData.userInfo.shopInfo.id}, "GET", (res) => {
+      this.setData({
+        shopName: res.shopName,
+        shopTypeArrIndex: res.shopType.toString(),
+        shopLxr: res.shopLxr,
+        shopPhone: res.shopPhone,
+        shopLandline: res.shopLandline,
+        shopAddress: res.shopAddress,
+        shopImageP: res.shopImagePath,
+        aShopImagePath: util.getThumbnail(util.portUrl + res.shopImagePath),
+        shopImagePath: util.portUrl + res.shopImagePath,
+        shopImageName: res.shopImageName,
+        region: [res.shopProvince, res.shopCity, res.shopCounty],
+        startTime: res.shopTimeStart,
+        endTime: res.shopTimeEnd,
       })
     })
   },

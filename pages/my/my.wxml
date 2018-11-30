@@ -6,6 +6,7 @@
       <view class="my-top-cont-poa">
         <view class="my-top-cont-poa-img"><image src="{{imgSrc}}"></image></view>
         <view class="my-top-cont-poa-name">{{userName}}</view>
+        <view class="my-top-cont-poa-greeting">{{greeting}}</view>
       </view>
     </view>
   </view>

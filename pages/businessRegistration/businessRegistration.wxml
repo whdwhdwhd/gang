@@ -5,14 +5,14 @@
       <view class="section_title">店铺图：</view>
       <view class="section_content" catchtap="shopImgUpload">
         <view class="shop_img_box">
-          <image wx:if="{{aShopImagePath}}" src="{{aShopImagePath}}"></image>
+          <image wx:if="{{shopImageP}}" src="{{aShopImagePath}}"></image>
           <view wx:else>上传</view>
         </view>
       </view>
     </view>
     <view class="section section_gap">
       <view class="section_title">店铺名称：</view>
-      <view class="section_content"><input name="shopName" placeholder="请输入店铺名称" /></view>
+      <view class="section_content"><input name="shopName" value="{{shopName}}" placeholder="请输入店铺名称" /></view>
     </view>
     <view class="section section_gap">
       <view class="section_title">店铺类型：</view>
@@ -31,15 +31,15 @@
     </view>
     <view class="section section_gap">
       <view class="section_title">联系人：</view>
-      <view class="section_content"><input name="shopLxr" placeholder="请输入联系人" /></view>
+      <view class="section_content"><input name="shopLxr" value="{{shopLxr}}" placeholder="请输入联系人" /></view>
     </view>
     <view class="section section_gap">
       <view class="section_title">手机号码：</view>
-      <view class="section_content"><input name="shopPhone" type="number" placeholder="请输入手机号码" /></view>
+      <view class="section_content"><input name="shopPhone" value="{{shopPhone}}" type="number" placeholder="请输入手机号码" /></view>
     </view>
     <view class="section section_gap">
       <view class="section_title">座机号码：</view>
-      <view class="section_content"><input name="shopLandline" type="number" placeholder="请输入座机号码" /></view>
+      <view class="section_content"><input name="shopLandline" value="{{shopLandline}}" type="number" placeholder="请输入座机号码" /></view>
     </view>
     <view class="section section_gap">
       <view class="section_title">所在地区：</view>
@@ -58,7 +58,7 @@
     </view>
     <view class="section section_gap">
       <view class="section_title">详细地址：</view>
-      <view class="section_content"><input name="shopAddress" placeholder="请输入详细地址" /></view>
+      <view class="section_content"><input name="shopAddress" value="{{shopAddress}}" placeholder="请输入详细地址" /></view>
     </view>
     <view class="section section_gap">
       <view class="section_title">工作时间：</view>

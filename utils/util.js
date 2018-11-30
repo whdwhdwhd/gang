@@ -95,7 +95,7 @@ const setObjImgSrc = function (data, str, isCompress) {
   }
   return data
 }
-//接口综合  http://47.104.201.33:8080/  阿里  http://192.168.3.116:8080  本地  https://yuexiang360.cn/   线上
+//接口综合  http://47.104.201.33:8080/  阿里  http://192.168.3.116:8080/  本地  https://yuexiang360.cn/   线上
 const portUrl = "http://47.104.201.33:8080/";  
 const urls={
   //获取openId
@@ -156,6 +156,10 @@ const urls={
   urls_updateFormIds() { return portUrl + "sysUser/updateFormIds" },
   //查看formIds是否超时
   urls_checkFormIds() { return portUrl + "sysUser/checkFormIds" },
+  //查看门店信息
+  urls_findShopInfoById() { return portUrl + "shopInfo/findShopInfoById" },
+  //点击我的，获取问候语 
+  urls_myGreetings() { return portUrl + "aboutUs/myGreetings" },
 }
 module.exports = {
   formatTime: formatTime,

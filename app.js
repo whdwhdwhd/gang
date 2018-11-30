@@ -4,29 +4,28 @@ App({
   onLaunch: function () {
     // 展示本地存储能力
     var _this=this;
-    // this.getUnionId();
-    this.getlocationFun(function(){
-      _this.getSettingUserInfoFun()
-    })
-    
   },
   //获取unionId
   getUnionId:function(callback){
     var _this=this;
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        util.http(util.urls.urls_getOpenId(), { jsCode: res.code }, "POST", (res) => {
-          _this.globalData.userInfo.unionId = res.unionId;
-          wx.setStorageSync('unionId', res.unionId);
-          if (res.shopInfo){
-            _this.globalData.userInfo.shopInfo = res.shopInfo;
-            _this.globalData.userInfo.shopId = res.shopInfo.id;
+    this.getlocationFun(function () {
+      _this.getSettingUserInfoFun(function(){
+        // 登录
+        wx.login({
+          success: res => {
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
+            util.http(util.urls.urls_getOpenId(), { jsCode: res.code }, "POST", (res) => {
+              _this.globalData.userInfo.unionId = res.unionId;
+              wx.setStorageSync('unionId', res.unionId);
+              if (res.shopInfo) {
+                _this.globalData.userInfo.shopInfo = res.shopInfo;
+                _this.globalData.userInfo.shopId = res.shopInfo.id;
+              }
+              callback && callback()
+            })
           }
-          callback && callback()
-        })
-      }
+      })
+    })
     })
   },
   //获取地理位置权限
@@ -78,13 +77,13 @@ App({
     })
   },
   //获取用户信息权限
-  getSettingUserInfoFun() {
+  getSettingUserInfoFun(callback) {
     var _this = this;
     // 获取用户信息
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
-          _this.getUserInfoFun()
+          _this.getUserInfoFun(callback)
         }else{
           wx.redirectTo({
             url:"/pages/index/index"
@@ -94,13 +93,14 @@ App({
     })
   },
   //获取用户信息
-  getUserInfoFun: function () {
+  getUserInfoFun: function (callback) {
     var _this = this;
     // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
     wx.getUserInfo({
       success: res => {
         _this.globalData.userInfo.nickName = res.userInfo.nickName;
         _this.globalData.userInfo.avatarUrl = res.userInfo.avatarUrl;
+        callback && callback()
       }
     })
   },

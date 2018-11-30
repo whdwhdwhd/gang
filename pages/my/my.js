@@ -9,7 +9,8 @@ Page({
   data: {
     imgSrc:"",
     userName:"",
-    shopStatus: 0
+    shopStatus: 0,
+    greeting:""
   },
   /**
    * 生命周期函数--监听页面加载
@@ -19,6 +20,11 @@ Page({
       imgSrc: app.globalData.userInfo.avatarUrl,
       userName: app.globalData.userInfo.nickName,
       shopStatus: app.globalData.userInfo.shopInfo.shopStatus || ""
+    })
+    util.http(util.urls.urls_myGreetings(), {}, "GET", (res) => {
+      this.setData({
+        greeting: res
+      })
     })
   },
 
