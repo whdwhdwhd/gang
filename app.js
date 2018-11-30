@@ -21,6 +21,8 @@ App({
                 _this.globalData.userInfo.shopInfo = res.shopInfo;
                 _this.globalData.userInfo.shopId = res.shopInfo.id;
               }
+              util.http(util.urls.urls_updateImgInfo(), { headImgPath: _this.globalData.userInfo.avatarUrl, userName: _this.globalData.userInfo.nickName}, "POST", (res) => {
+              })
               callback && callback()
             })
           }

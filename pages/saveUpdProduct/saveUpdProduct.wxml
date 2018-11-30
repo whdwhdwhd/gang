@@ -12,11 +12,33 @@
     </view>
     <view class="section section_gap">
       <view class="section_title">服务时长/分：</view>
-      <view class="section_content"><input name="productDuration" value="{{formData.productDuration}}" placeholder="请输入服务时长/分" /></view>
+      <view class="section_content">
+      <picker bindchange="bindTimeChange" value="{{timeIndex}}" range="{{timeArray}}">
+        <view class="picker">
+          <block wx:if="{{timeArray[timeIndex]}}">
+            {{timeArray[timeIndex]}}
+          </block>
+          <block wx:else>
+            <text>请选择服务时长</text>
+          </block>
+        </view>
+      </picker>
+      </view>
     </view>
     <view class="section section_gap">
       <view class="section_title">服务次/人：</view>
-      <view class="section_content"><input name="productCount" value="{{formData.productCount}}" placeholder="请输入服务次/人" /></view>
+      <view class="section_content">
+      <picker bindchange="bindCountChange" value="{{countIndex}}" range="{{countArray}}">
+        <view class="picker">
+          <block wx:if="{{countArray[countIndex]}}">
+            {{countArray[countIndex]}}
+          </block>
+          <block wx:else>
+            <text>请选择服务次/人</text>
+          </block>
+        </view>
+      </picker>
+      </view>
     </view>
     <view class="section section_gap">
       <view class="section_title">服务描述：</view>
